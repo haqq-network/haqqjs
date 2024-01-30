@@ -13,7 +13,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "registry": "http://npm.haqq.sh"
   },
   "scripts": {
     "format": "prettier --write --loglevel warn \"./src/**/*.ts\"",
@@ -66,7 +66,7 @@
     "@types/diff": "^4",
     "@types/eslint-plugin-prettier": "^3",
     "@types/jasmine": "^4",
-    "@types/node": "^15.0.1",
+    "@types/node": "^18.14.4",
     "@types/yargs": "^15.0.4",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",

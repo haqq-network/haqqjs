@@ -22,7 +22,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "registry": "http://npm.haqq.sh"
   },
   "scripts": {
     "docs": "typedoc --options typedoc.js",
@@ -51,7 +51,7 @@
     "@types/karma-firefox-launcher": "^2",
     "@types/karma-jasmine": "^4",
     "@types/karma-jasmine-html-reporter": "^1",
-    "@types/node": "^15.0.1",
+    "@types/node": "^18.14.4",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "eslint": "^7.5",
