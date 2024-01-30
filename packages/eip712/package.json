@@ -1,6 +1,6 @@
 {
   "name": "@cosmjs/eip712",
-  "version": "0.26.0",
+  "version": "1.0.0",
   "description": "Utilities for Cosmos Web3",
   "contributors": [
     "Simon Warta <webmaster128@users.noreply.github.com>"
