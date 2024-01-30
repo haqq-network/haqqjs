@@ -37,3 +37,4 @@ coverage/
 # !.yarn/versions
 packages/*/.yarn/cache/*
 packages/*/dist/*
+packages/*/build/*
