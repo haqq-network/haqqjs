@@ -16,7 +16,10 @@ module.exports = [
       filename: "tests.js",
     },
     plugins: [
-      new webpack.EnvironmentPlugin({ SIMAPP_ENABLED: "", SLOW_SIMAPP_ENABLED: "" }),
+      new webpack.EnvironmentPlugin({
+        SIMAPP_ENABLED: "",
+        SLOW_SIMAPP_ENABLED: "",
+      }),
       new webpack.ProvidePlugin({
         Buffer: ["buffer", "Buffer"],
       }),

@@ -1,8 +1,8 @@
-import { fromBase64, fromHex } from "@cosmjs/encoding";
 import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
 import { PubKey } from "cosmjs-types/cosmos/crypto/secp256k1/keys";
 import { SignMode } from "cosmjs-types/cosmos/tx/signing/v1beta1/signing";
 import { Any } from "cosmjs-types/google/protobuf/any";
+import { fromBase64, fromHex } from "@cosmjs/encoding";
 import Long from "long";
 
 import { decodeTxRaw } from "./decode";

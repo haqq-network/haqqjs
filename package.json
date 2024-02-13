@@ -12,6 +12,10 @@
     "!*.spec.*",
     "!**/testdata/"
   ],
+  "engines": {
+    "node": ">=20.10",
+    "yarn": ">=4.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cosmos/cosmjs"

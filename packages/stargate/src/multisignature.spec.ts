@@ -5,9 +5,9 @@ import {
   pubkeyToAddress,
   Secp256k1HdWallet,
 } from "@cosmjs/amino";
+import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
 import { coins } from "@cosmjs/proto-signing";
 import { assert } from "@cosmjs/utils";
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
 
 import { MsgSendEncodeObject } from "./modules";
 import { makeCompactBitArray, makeMultisignedTxBytes } from "./multisignature";
@@ -18,7 +18,10 @@ import { faucet, pendingWithoutSimapp, simapp } from "./testutils.spec";
 describe("multisignature", () => {
   describe("makeCompactBitArray", () => {
     it("works for 0 bits of different lengths", () => {
-      expect(makeCompactBitArray([])).toEqual({ elems: new Uint8Array([]), extraBitsStored: 0 });
+      expect(makeCompactBitArray([])).toEqual({
+        elems: new Uint8Array([]),
+        extraBitsStored: 0,
+      });
       expect(makeCompactBitArray([false])).toEqual({
         elems: new Uint8Array([0b00000000]),
         extraBitsStored: 1,
@@ -57,11 +60,17 @@ describe("multisignature", () => {
       });
       expect(
         makeCompactBitArray([false, false, false, false, false, false, false, false, false, false]),
-      ).toEqual({ elems: new Uint8Array([0b00000000, 0b00000000]), extraBitsStored: 2 });
+      ).toEqual({
+        elems: new Uint8Array([0b00000000, 0b00000000]),
+        extraBitsStored: 2,
+      });
     });
 
     it("works for 1 bits of different lengths", () => {
-      expect(makeCompactBitArray([])).toEqual({ elems: new Uint8Array([]), extraBitsStored: 0 });
+      expect(makeCompactBitArray([])).toEqual({
+        elems: new Uint8Array([]),
+        extraBitsStored: 0,
+      });
       expect(makeCompactBitArray([true])).toEqual({
         elems: new Uint8Array([0b10000000]),
         extraBitsStored: 1,

@@ -2,12 +2,12 @@
 import { Secp256k1, Secp256k1Signature, sha256 } from "@cosmjs/crypto";
 import { fromBase64, fromHex } from "@cosmjs/encoding";
 
+import { addressToHex } from "./addresses";
 import { makeCosmoshubPath } from "./paths";
 import { extractKdfConfiguration, Secp256k1HdWallet } from "./secp256k1hdwallet";
 import { serializeSignDoc, StdSignDoc } from "./signdoc";
 import { base64Matcher } from "./testutils.spec";
 import { executeKdf, KdfConfiguration } from "./wallet";
-import { addressToHex } from "./addresses";
 
 describe("Secp256k1HdWallet", () => {
   // m/44'/118'/0'/0/0
@@ -177,7 +177,10 @@ describe("Secp256k1HdWallet", () => {
       const hdPaths = accountNumbers.map(makeCosmoshubPath);
       let serialized: string;
       {
-        const original = await Secp256k1HdWallet.fromMnemonic(mnemonic, { prefix: prefix, hdPaths: hdPaths });
+        const original = await Secp256k1HdWallet.fromMnemonic(mnemonic, {
+          prefix: prefix,
+          hdPaths: hdPaths,
+        });
         const anyKdfParams: KdfConfiguration = {
           algorithm: "argon2id",
           params: {
@@ -284,7 +287,7 @@ describe("Secp256k1HdWallet", () => {
       const wallet = await Secp256k1HdWallet.fromMnemonic(defaultMnemonic);
       const serialized = await wallet.serialize("123");
       expect(JSON.parse(serialized)).toEqual({
-        type: "secp256k1wallet-v1",
+        type: "secp256k1hdwallet-v1",
         kdf: {
           algorithm: "argon2id",
           params: {
@@ -316,7 +319,7 @@ describe("Secp256k1HdWallet", () => {
       };
       const serialized = await wallet.serializeWithEncryptionKey(key, customKdfConfiguration);
       expect(JSON.parse(serialized)).toEqual({
-        type: "secp256k1wallet-v1",
+        type: "secp256k1hdwallet-v1",
         kdf: customKdfConfiguration,
         encryption: {
           algorithm: "xchacha20poly1305-ietf",

@@ -82,8 +82,12 @@ describe("WebsocketClient", () => {
     const newBlockHeaderQuery = "tm.event='NewBlockHeader'";
 
     // we need two requests with unique IDs
-    const request1 = createJsonRpcRequest("subscribe", { query: newBlockHeaderQuery });
-    const request2 = createJsonRpcRequest("subscribe", { query: newBlockHeaderQuery });
+    const request1 = createJsonRpcRequest("subscribe", {
+      query: newBlockHeaderQuery,
+    });
+    const request2 = createJsonRpcRequest("subscribe", {
+      query: newBlockHeaderQuery,
+    });
     const stream1 = client.listen(request1);
     const stream2 = client.listen(request2);
 

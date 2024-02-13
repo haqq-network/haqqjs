@@ -47,19 +47,19 @@ export function createMsgWrappedEthereumTxEncodeObjectFromTxData(
     throw new Error("invalid chainId");
   }
 
-  const chainId = bufferToBigInt(toBuffer(txData.chainId));
-  const common = Common.custom({ chainId: chainId });
+  const chainId = bufferToBigInt(toBuffer(txData.chainId as unknown as bigint));
+  const common = Common.custom({ chainId: chainId as unknown as number });
   const tx = FeeMarketEIP1559Transaction.fromTxData(txData, { common });
 
   const dynamicFeeTx: DynamicFeeTxEncodeObject = {
     typeUrl: "/ethermint.evm.v1.DynamicFeeTx",
     value: DynamicFeeTx.fromPartial({
-      chainId: bigIntToHex(tx.chainId),
-      gasTipCap: bigIntToHex(tx.maxPriorityFeePerGas),
-      gasFeeCap: bigIntToHex(tx.maxFeePerGas),
-      gas: Long.fromString(bigIntToHex(tx.gasLimit), true, 16),
+      chainId: bigIntToHex(tx.chainId as unknown as bigint),
+      gasTipCap: bigIntToHex(tx.maxPriorityFeePerGas as unknown as bigint),
+      gasFeeCap: bigIntToHex(tx.maxFeePerGas as unknown as bigint),
+      gas: Long.fromString(bigIntToHex(tx.gasLimit as unknown as bigint), true, 16),
       to: tx.to?.toString(),
-      value: bigIntToHex(tx.value),
+      value: bigIntToHex(tx.value as unknown as bigint),
       data: Uint8Array.from(tx.data),
     }),
   };

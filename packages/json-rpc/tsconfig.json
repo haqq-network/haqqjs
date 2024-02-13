@@ -5,10 +5,6 @@
     "outDir": "build",
     "rootDir": "src"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/workers/**/*"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.js"],
+  "exclude": ["src/workers/**/*.ts", "src/workers/**/*.js"]
 }

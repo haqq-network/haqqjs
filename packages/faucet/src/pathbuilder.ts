@@ -9,7 +9,9 @@ export type PathBuilder = (account_index: number) => HdPath;
  * @param pattern, e.g. m/44'/148'/a' for Stellar paths
  */
 export function makePathBuilder(pattern: string): PathBuilder {
-  if (pattern.indexOf("a") === -1) throw new Error("Missing account index variable `a` in pattern.");
+  if (pattern.indexOf("a") === -1) {
+    throw new Error("Missing account index variable `a` in pattern.");
+  }
   if (pattern.indexOf("a") !== pattern.lastIndexOf("a")) {
     throw new Error("More than one account index variable `a` in pattern.");
   }

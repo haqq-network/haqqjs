@@ -117,7 +117,10 @@ export function setupWasmExtension(base: QueryClient): WasmExtension {
       },
 
       queryContractSmart: async (address: string, query: JsonObject) => {
-        const request = { address: address, queryData: toUtf8(JSON.stringify(query)) };
+        const request = {
+          address: address,
+          queryData: toUtf8(JSON.stringify(query)),
+        };
         const { data } = await queryService.SmartContractState(request);
         // By convention, smart queries must return a valid JSON document (see https://github.com/CosmWasm/cosmwasm/issues/144)
         let responseText: string;

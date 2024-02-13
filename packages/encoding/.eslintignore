@@ -1,8 +1,1 @@
-node_modules/
-
-build/
-custom_types/
-dist/
-docs/
-generated/
-types/
+../../.eslintignore

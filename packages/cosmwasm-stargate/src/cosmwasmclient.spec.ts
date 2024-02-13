@@ -342,7 +342,10 @@ describe("CosmWasmClient", () => {
         const wallet = await DirectSecp256k1HdWallet.fromMnemonic(alice.mnemonic, { prefix: wasmd.prefix });
         const client = await SigningCosmWasmClient.connectWithSigner(wasmd.endpoint, wallet);
         const { codeId } = await client.upload(alice.address0, getHackatom().data, defaultUploadFee);
-        const instantiateMsg = { verifier: makeRandomAddress(), beneficiary: makeRandomAddress() };
+        const instantiateMsg = {
+          verifier: makeRandomAddress(),
+          beneficiary: makeRandomAddress(),
+        };
         const label = "random hackatom";
         const { contractAddress } = await client.instantiate(
           alice.address0,
@@ -398,7 +401,10 @@ describe("CosmWasmClient", () => {
         const wallet = await DirectSecp256k1HdWallet.fromMnemonic(alice.mnemonic, { prefix: wasmd.prefix });
         const client = await SigningCosmWasmClient.connectWithSigner(wasmd.endpoint, wallet);
         const { codeId } = await client.upload(alice.address0, getHackatom().data, defaultUploadFee);
-        const instantiateMsg = { verifier: makeRandomAddress(), beneficiary: makeRandomAddress() };
+        const instantiateMsg = {
+          verifier: makeRandomAddress(),
+          beneficiary: makeRandomAddress(),
+        };
         const label = "a different hackatom";
         const { contractAddress } = await client.instantiate(
           alice.address0,
@@ -416,7 +422,9 @@ describe("CosmWasmClient", () => {
       assert(contract);
 
       const client = await CosmWasmClient.connect(wasmd.endpoint);
-      const result = await client.queryContractSmart(contract.address, { verifier: {} });
+      const result = await client.queryContractSmart(contract.address, {
+        verifier: {},
+      });
       expect(result).toEqual({ verifier: contract.instantiateMsg.verifier });
 
       // Typed request (https://github.com/cosmos/cosmjs/pull/1281)

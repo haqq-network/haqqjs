@@ -27,7 +27,9 @@ export async function executeKdf(password: string, configuration: KdfConfigurati
   switch (configuration.algorithm) {
     case "argon2id": {
       const options = configuration.params;
-      if (!isArgon2idOptions(options)) throw new Error("Invalid format of argon2id params");
+      if (!isArgon2idOptions(options)) {
+        throw new Error("Invalid format of argon2id params");
+      }
       return Argon2id.execute(password, cosmjsSalt, options);
     }
     default:

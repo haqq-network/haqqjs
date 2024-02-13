@@ -1,6 +1,6 @@
 import { Secp256k1, Sha256 } from "@cosmjs/crypto";
-import { Bech32, fromHex, fromBase64, fromUtf8, toHex, toBase64, toUtf8 } from "@cosmjs/encoding";
-import { assert, isNonNullObject } from "@cosmjs/utils/build";
+import { Bech32, fromBase64, fromHex, fromUtf8, toBase64, toHex, toUtf8 } from "@cosmjs/encoding";
+import { assert, isNonNullObject } from "@cosmjs/utils";
 
 import { ethAddressChecksumRaw, rawSecp256k1PubkeyToRawAddress } from "./addresses";
 import { encodeSecp256k1Signature } from "./signature";
@@ -49,7 +49,7 @@ export interface Secp256k1WalletSerialization {
  * The data of a wallet serialization that is encrypted.
  * All fields in here must be JSON types.
  */
- interface Secp256k1WalletData {
+interface Secp256k1WalletData {
   readonly privkey: string;
   readonly prefix: string;
 }
@@ -60,7 +60,9 @@ function extractKdfConfigurationV1(doc: any): KdfConfiguration {
 
 export function extractKdfConfiguration(serialization: string): KdfConfiguration {
   const root = JSON.parse(serialization);
-  if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+  if (!isNonNullObject(root)) {
+    throw new Error("Root document is not an object.");
+  }
 
   switch ((root as any).type) {
     case serializationTypeV1:
@@ -93,9 +95,11 @@ export class Secp256k1Wallet implements OfflineAminoSigner {
    * @param password The user provided password used to generate an encryption key via a KDF.
    *                 This is not normalized internally (see "Unicode normalization" to learn more).
    */
-   public static async deserialize(serialization: string, password: string): Promise<Secp256k1Wallet> {
+  public static async deserialize(serialization: string, password: string): Promise<Secp256k1Wallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     switch ((root as any).type) {
       case serializationTypeV1:
         return Secp256k1Wallet.deserializeTypeV1(serialization, password);
@@ -117,7 +121,9 @@ export class Secp256k1Wallet implements OfflineAminoSigner {
     encryptionKey: Uint8Array,
   ): Promise<Secp256k1Wallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const untypedRoot: any = root;
     switch (untypedRoot.type) {
       case serializationTypeV1: {
@@ -137,12 +143,11 @@ export class Secp256k1Wallet implements OfflineAminoSigner {
     }
   }
 
-  private static async deserializeTypeV1(
-    serialization: string,
-    password: string,
-  ): Promise<Secp256k1Wallet> {
+  private static async deserializeTypeV1(serialization: string, password: string): Promise<Secp256k1Wallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const encryptionKey = await executeKdf(password, (root as any).kdf);
     return Secp256k1Wallet.deserializeWithEncryptionKey(serialization, encryptionKey);
   }
@@ -195,7 +200,7 @@ export class Secp256k1Wallet implements OfflineAminoSigner {
    * @param password The user provided password used to generate an encryption key via a KDF.
    *                 This is not normalized internally (see "Unicode normalization" to learn more).
    */
-   public async serialize(password: string): Promise<string> {
+  public async serialize(password: string): Promise<string> {
     const kdfConfiguration = basicPasswordHashingOptions;
     const encryptionKey = await executeKdf(password, kdfConfiguration);
     return this.serializeWithEncryptionKey(encryptionKey, kdfConfiguration);

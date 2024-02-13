@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { fromBase64, fromHex } from "@cosmjs/encoding";
+import { fromBase64, fromHex, toUtf8 } from "@cosmjs/encoding";
 import { JsonRpcSuccessResponse } from "@cosmjs/json-rpc";
 import { assert } from "@cosmjs/utils";
 
@@ -114,8 +114,8 @@ interface RpcAttribute {
 
 function decodeAttribute(attribute: RpcAttribute): responses.Attribute {
   return {
-    key: fromBase64(assertNotEmpty(attribute.key)),
-    value: fromBase64(assertString(attribute.value ?? "")),
+    key: toUtf8(assertNotEmpty(attribute.key)),
+    value: toUtf8(assertString(attribute.value ?? "")),
   };
 }
 
@@ -152,6 +152,7 @@ interface RpcTxData {
 }
 
 function decodeTxData(data: RpcTxData): responses.TxData {
+  // debugger;
   return {
     code: apiToSmallInt(assertNumber(data.code ?? 0)),
     codespace: data.codespace,
@@ -705,6 +706,7 @@ interface RpcTxResponse {
 }
 
 function decodeTxResponse(data: RpcTxResponse): responses.TxResponse {
+  // debugger;
   return {
     tx: fromBase64(assertNotEmpty(data.tx)),
     result: decodeTxData(assertObject(data.tx_result)),

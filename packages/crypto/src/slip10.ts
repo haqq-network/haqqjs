@@ -219,7 +219,9 @@ export function pathToString(path: HdPath): string {
 }
 
 export function stringToPath(input: string): HdPath {
-  if (!input.startsWith("m")) throw new Error("Path string must start with 'm'");
+  if (!input.startsWith("m")) {
+    throw new Error("Path string must start with 'm'");
+  }
   let rest = input.slice(1);
 
   const out = new Array<Slip10RawIndex>();
@@ -228,7 +230,9 @@ export function stringToPath(input: string): HdPath {
     if (!match) throw new Error("Syntax error while reading path component");
     const [fullMatch, numberString, apostrophe] = match;
     const value = Uint53.fromString(numberString).toNumber();
-    if (value >= 2 ** 31) throw new Error("Component value too high. Must not exceed 2**31-1.");
+    if (value >= 2 ** 31) {
+      throw new Error("Component value too high. Must not exceed 2**31-1.");
+    }
     if (apostrophe) out.push(Slip10RawIndex.hardened(value));
     else out.push(Slip10RawIndex.normal(value));
     rest = rest.slice(fullMatch.length);

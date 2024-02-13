@@ -149,7 +149,9 @@ describe("pbkdf2", () => {
   describe("pbkdf2Sha512Crypto", () => {
     it("works", async () => {
       const crypto = await getCryptoModule();
-      if (!crypto) pending("The crypto module is not available in this environment");
+      if (!crypto) {
+        pending("The crypto module is not available in this environment");
+      }
 
       {
         const { secret, salt, iterations, keylen, expected } = botanTest;

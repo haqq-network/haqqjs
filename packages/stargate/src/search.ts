@@ -11,7 +11,10 @@ export interface SearchBySentFromOrToQuery {
  * more powerful and slightly lower level than the other search options.
  */
 export interface SearchByTagsQuery {
-  readonly tags: ReadonlyArray<{ readonly key: string; readonly value: string }>;
+  readonly tags: ReadonlyArray<{
+    readonly key: string;
+    readonly value: string;
+  }>;
 }
 
 export type SearchTxQuery = SearchByHeightQuery | SearchBySentFromOrToQuery | SearchByTagsQuery;

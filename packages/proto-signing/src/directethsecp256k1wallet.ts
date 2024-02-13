@@ -64,7 +64,9 @@ function extractKdfConfigurationV1(doc: any): KdfConfiguration {
 
 export function extractKdfConfiguration(serialization: string): KdfConfiguration {
   const root = JSON.parse(serialization);
-  if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+  if (!isNonNullObject(root)) {
+    throw new Error("Root document is not an object.");
+  }
 
   switch ((root as any).type) {
     case serializationTypeV1:
@@ -102,7 +104,9 @@ export class DirectEthSecp256k1Wallet implements OfflineDirectSigner {
     password: string,
   ): Promise<DirectEthSecp256k1Wallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     switch ((root as any).type) {
       case serializationTypeV1:
         return DirectEthSecp256k1Wallet.deserializeTypeV1(serialization, password);
@@ -124,7 +128,9 @@ export class DirectEthSecp256k1Wallet implements OfflineDirectSigner {
     encryptionKey: Uint8Array,
   ): Promise<DirectEthSecp256k1Wallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const untypedRoot: any = root;
     switch (untypedRoot.type) {
       case serializationTypeV1: {
@@ -149,7 +155,9 @@ export class DirectEthSecp256k1Wallet implements OfflineDirectSigner {
     password: string,
   ): Promise<DirectEthSecp256k1Wallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const encryptionKey = await executeKdf(password, (root as any).kdf);
     return DirectEthSecp256k1Wallet.deserializeWithEncryptionKey(serialization, encryptionKey);
   }

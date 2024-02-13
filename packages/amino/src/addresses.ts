@@ -64,34 +64,30 @@ export function ethAddressChecksumRaw(rawAddress: Uint8Array): string {
 }
 
 export function ethAddressChecksum(address: string): string {
-  address = address.replace(/^0x/i, "").toLowerCase();
-  const addressHash = toHex(keccak256(toUtf8(address)));
+  const innerAddress = address.replace(/^0x/i, "").toLowerCase();
+  const addressHash = toHex(keccak256(toUtf8(innerAddress)));
   let checksumAddress = "0x";
-  for (let i = 0; i < address.length; i++) {
-    checksumAddress += parseInt(addressHash[i], 16) > 7 ? address[i].toUpperCase() : address[i];
+  for (let i = 0; i < innerAddress.length; i++) {
+    checksumAddress += parseInt(addressHash[i], 16) > 7 ? innerAddress[i].toUpperCase() : innerAddress[i];
   }
   return checksumAddress;
 }
 
 export function checkEthAddressChecksum(address: string): boolean {
   // Check each case
-  address = address.replace(/^0x/i, "");
-  const addressHash = toHex(keccak256(toUtf8(address.toLowerCase())));
+  const innerAddress = address.replace(/^0x/i, "");
+  const addressHash = toHex(keccak256(toUtf8(innerAddress.toLowerCase())));
 
-  for (let i = 0; i < address.length; i++) {
+  for (let i = 0; i < innerAddress.length; i++) {
     // the nth letter should be uppercase if the nth digit of casemap is 1
     if (
-      (parseInt(addressHash[i], 16) > 7 && address[i].toUpperCase() !== address[i]) ||
-      (parseInt(addressHash[i], 16) <= 7 && address[i].toLowerCase() !== address[i])
+      (parseInt(addressHash[i], 16) > 7 && innerAddress[i].toUpperCase() !== innerAddress[i]) ||
+      (parseInt(addressHash[i], 16) <= 7 && innerAddress[i].toLowerCase() !== innerAddress[i])
     ) {
       return false;
     }
   }
   return true;
-}
-
-export function isValidAddress(input: string, requiredPrefix: string): boolean {
-  return isValidHexAddress(input) || isValidBech32Address(input, requiredPrefix);
 }
 
 export function isValidHexAddress(input: string): boolean {
@@ -116,6 +112,10 @@ export function isValidBech32Address(input: string, requiredPrefix: string): boo
   } catch {
     return false;
   }
+}
+
+export function isValidAddress(input: string, requiredPrefix: string): boolean {
+  return isValidHexAddress(input) || isValidBech32Address(input, requiredPrefix);
 }
 
 export function hexToAddress(address: string, prefix: string): string {

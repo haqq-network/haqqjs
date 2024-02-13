@@ -107,25 +107,25 @@ using a custom registry. We expose a `Registry` class from
 For example:
 
 ```ts
-import { DirectSecp256k1HdWallet, Registry } from "@cosmjs/proto-signing";
+import { DirectSecp256k1HdWallet, Registry } from '@cosmjs/proto-signing';
 import {
   defaultRegistryTypes as defaultStargateTypes,
   SigningStargateClient,
-} from "@cosmjs/stargate";
-import { MsgXxx } from "./path/to/generated/codec/my/custom/tx"; // Replace with your own Msg import
+} from '@cosmjs/stargate';
+import { MsgXxx } from './path/to/generated/codec/my/custom/tx'; // Replace with your own Msg import
 
 const myRegistry = new Registry(defaultStargateTypes);
-myRegistry.register("/my.custom.MsgXxx", MsgXxx); // Replace with your own type URL and Msg class
+myRegistry.register('/my.custom.MsgXxx', MsgXxx); // Replace with your own type URL and Msg class
 const mnemonic = // Replace with your own mnemonic
-  "economy stock theory fatal elder harbor betray wasp final emotion task crumble siren bottom lizard educate guess current outdoor pair theory focus wife stone";
+  'economy stock theory fatal elder harbor betray wasp final emotion task crumble siren bottom lizard educate guess current outdoor pair theory focus wife stone';
 
 // Inside an async function...
 const signer = await DirectSecp256k1HdWallet.fromMnemonic(
   mnemonic,
-  { prefix: "myprefix" }, // Replace with your own Bech32 address prefix
+  { prefix: 'myprefix' }, // Replace with your own Bech32 address prefix
 );
 const client = await SigningStargateClient.connectWithSigner(
-  "my.endpoint.com", // Replace with your own RPC endpoint
+  'my.endpoint.com', // Replace with your own RPC endpoint
   signer,
   { registry: myRegistry },
 );
@@ -135,21 +135,21 @@ Now when you want to sign and broadcast a transaction which contains a message
 of your custom type, the client will know how to serialize (and deserialize) it:
 
 ```ts
-const myAddress = "wasm1pkptre7fdkl6gfrzlesjjvhxhlc3r4gm32kke3";
+const myAddress = 'wasm1pkptre7fdkl6gfrzlesjjvhxhlc3r4gm32kke3';
 const message = {
-  typeUrl: "/my.custom.MsgXxx", // Same as above
+  typeUrl: '/my.custom.MsgXxx', // Same as above
   value: MsgXxx.fromPartial({
-    foo: "bar",
+    foo: 'bar',
   }),
 };
 const fee = {
   amount: [
     {
-      denom: "udenom", // Use the appropriate fee denom for your chain
-      amount: "120000",
+      denom: 'udenom', // Use the appropriate fee denom for your chain
+      amount: '120000',
     },
   ],
-  gas: "10000",
+  gas: '10000',
 };
 
 // Inside an async function...
@@ -171,13 +171,13 @@ currently requires a few layers of abstraction. Here is how you can achieve it
 using CosmJS helpers:
 
 ```ts
-import { createProtobufRpcClient, QueryClient } from "@cosmjs/stargate";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { QueryClientImpl } from "./path/to/generated/codec/my/custom/query";
+import { createProtobufRpcClient, QueryClient } from '@cosmjs/stargate';
+import { Tendermint34Client } from '@cosmjs/tendermint-rpc';
+import { QueryClientImpl } from './path/to/generated/codec/my/custom/query';
 
 // Inside an async function...
 // The Tendermint client knows how to talk to the Tendermint RPC endpoint
-const tendermintClient = await Tendermint34Client.connect("my.endpoint.com");
+const tendermintClient = await Tendermint34Client.connect('my.endpoint.com');
 
 // The generic Stargate query client knows how to use the Tendermint client to submit unverified ABCI queries
 const queryClient = new QueryClient(tendermintClient);
@@ -190,7 +190,7 @@ const queryService = new QueryClientImpl(rpcClient);
 
 // Now you can use this service to submit queries
 const queryResult = await queryService.MyCustomQuery({
-  foo: "bar",
+  foo: 'bar',
 });
 ```
 
@@ -226,7 +226,7 @@ const queryClient = QueryClient.withExtensions(
 
 // Inside an async function...
 // Now your query client has been extended
-const queryResult = await queryClient.mymodule.customQuery("bar");
+const queryResult = await queryClient.mymodule.customQuery('bar');
 ```
 
 You can see how CosmJS sets up the `bank` extension for its default query client

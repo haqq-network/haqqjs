@@ -39,11 +39,17 @@ export function setupGravityExtension(base: QueryClient): GravityExtension {
         return response;
       },
       erc20ToDenom: async (chainName: string, erc20: string) => {
-        const response = await queryService.ERC20ToDenom({ chainName: chainName, erc20: erc20 });
+        const response = await queryService.ERC20ToDenom({
+          chainName: chainName,
+          erc20: erc20,
+        });
         return response;
       },
       denomToErc20: async (chainName: string, denom: string) => {
-        const response = await queryService.DenomToERC20({ chainName: chainName, denom: denom });
+        const response = await queryService.DenomToERC20({
+          chainName: chainName,
+          denom: denom,
+        });
         return response;
       },
       pendingSendToEvmChain: async (chainName: string, sender: string) => {
@@ -54,7 +60,10 @@ export function setupGravityExtension(base: QueryClient): GravityExtension {
         return response;
       },
       pendingIbcAutoForwards: async (chainName: string, limit: Long) => {
-        const response = await queryService.GetPendingIbcAutoForwards({ chainName: chainName, limit: limit });
+        const response = await queryService.GetPendingIbcAutoForwards({
+          chainName: chainName,
+          limit: limit,
+        });
         return response;
       },
     },

@@ -81,17 +81,25 @@ export class Tendermint35Client {
   }
 
   public async abciInfo(): Promise<responses.AbciInfoResponse> {
-    const query: requests.AbciInfoRequest = { method: requests.Method.AbciInfo };
+    const query: requests.AbciInfoRequest = {
+      method: requests.Method.AbciInfo,
+    };
     return this.doCall(query, this.p.encodeAbciInfo, this.r.decodeAbciInfo);
   }
 
   public async abciQuery(params: requests.AbciQueryParams): Promise<responses.AbciQueryResponse> {
-    const query: requests.AbciQueryRequest = { params: params, method: requests.Method.AbciQuery };
+    const query: requests.AbciQueryRequest = {
+      params: params,
+      method: requests.Method.AbciQuery,
+    };
     return this.doCall(query, this.p.encodeAbciQuery, this.r.decodeAbciQuery);
   }
 
   public async block(height?: number): Promise<responses.BlockResponse> {
-    const query: requests.BlockRequest = { method: requests.Method.Block, params: { height: height } };
+    const query: requests.BlockRequest = {
+      method: requests.Method.Block,
+      params: { height: height },
+    };
     return this.doCall(query, this.p.encodeBlock, this.r.decodeBlock);
   }
 
@@ -112,7 +120,10 @@ export class Tendermint35Client {
    * @see https://docs.tendermint.com/master/rpc/#/Info/block_search
    */
   public async blockSearch(params: requests.BlockSearchParams): Promise<responses.BlockSearchResponse> {
-    const query: requests.BlockSearchRequest = { params: params, method: requests.Method.BlockSearch };
+    const query: requests.BlockSearchRequest = {
+      params: params,
+      method: requests.Method.BlockSearch,
+    };
     const resp = await this.doCall(query, this.p.encodeBlockSearch, this.r.decodeBlockSearch);
     return {
       ...resp,
@@ -175,7 +186,10 @@ export class Tendermint35Client {
   public async broadcastTxSync(
     params: requests.BroadcastTxParams,
   ): Promise<responses.BroadcastTxSyncResponse> {
-    const query: requests.BroadcastTxRequest = { params: params, method: requests.Method.BroadcastTxSync };
+    const query: requests.BroadcastTxRequest = {
+      params: params,
+      method: requests.Method.BroadcastTxSync,
+    };
     return this.doCall(query, this.p.encodeBroadcastTx, this.r.decodeBroadcastTxSync);
   }
 
@@ -187,7 +201,10 @@ export class Tendermint35Client {
   public async broadcastTxAsync(
     params: requests.BroadcastTxParams,
   ): Promise<responses.BroadcastTxAsyncResponse> {
-    const query: requests.BroadcastTxRequest = { params: params, method: requests.Method.BroadcastTxAsync };
+    const query: requests.BroadcastTxRequest = {
+      params: params,
+      method: requests.Method.BroadcastTxAsync,
+    };
     return this.doCall(query, this.p.encodeBroadcastTx, this.r.decodeBroadcastTxAsync);
   }
 
@@ -199,12 +216,18 @@ export class Tendermint35Client {
   public async broadcastTxCommit(
     params: requests.BroadcastTxParams,
   ): Promise<responses.BroadcastTxCommitResponse> {
-    const query: requests.BroadcastTxRequest = { params: params, method: requests.Method.BroadcastTxCommit };
+    const query: requests.BroadcastTxRequest = {
+      params: params,
+      method: requests.Method.BroadcastTxCommit,
+    };
     return this.doCall(query, this.p.encodeBroadcastTx, this.r.decodeBroadcastTxCommit);
   }
 
   public async commit(height?: number): Promise<responses.CommitResponse> {
-    const query: requests.CommitRequest = { method: requests.Method.Commit, params: { height: height } };
+    const query: requests.CommitRequest = {
+      method: requests.Method.Commit,
+      params: { height: height },
+    };
     return this.doCall(query, this.p.encodeCommit, this.r.decodeCommit);
   }
 
@@ -219,7 +242,9 @@ export class Tendermint35Client {
   }
 
   public async numUnconfirmedTxs(): Promise<responses.NumUnconfirmedTxsResponse> {
-    const query: requests.NumUnconfirmedTxsRequest = { method: requests.Method.NumUnconfirmedTxs };
+    const query: requests.NumUnconfirmedTxsRequest = {
+      method: requests.Method.NumUnconfirmedTxs,
+    };
     return this.doCall(query, this.p.encodeNumUnconfirmedTxs, this.r.decodeNumUnconfirmedTxs);
   }
 
@@ -261,7 +286,10 @@ export class Tendermint35Client {
    * @see https://docs.tendermint.com/master/rpc/#/Info/tx
    */
   public async tx(params: requests.TxParams): Promise<responses.TxResponse> {
-    const query: requests.TxRequest = { params: params, method: requests.Method.Tx };
+    const query: requests.TxRequest = {
+      params: params,
+      method: requests.Method.Tx,
+    };
     return this.doCall(query, this.p.encodeTx, this.r.decodeTx);
   }
 
@@ -271,7 +299,10 @@ export class Tendermint35Client {
    * @see https://docs.tendermint.com/master/rpc/#/Info/tx_search
    */
   public async txSearch(params: requests.TxSearchParams): Promise<responses.TxSearchResponse> {
-    const query: requests.TxSearchRequest = { params: params, method: requests.Method.TxSearch };
+    const query: requests.TxSearchRequest = {
+      params: params,
+      method: requests.Method.TxSearch,
+    };
     return this.doCall(query, this.p.encodeTxSearch, this.r.decodeTxSearch);
   }
 

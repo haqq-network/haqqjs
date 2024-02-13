@@ -40,9 +40,13 @@ describe("encoding", () => {
       expect(sortedJsonStringify({ x: { y: { z: null } } })).toEqual(`{"x":{"y":{"z":null}}}`);
 
       // not yet sorted
-      expect(sortedJsonStringify({ b: { z: true, x: true, y: true }, a: true, c: true })).toEqual(
-        `{"a":true,"b":{"x":true,"y":true,"z":true},"c":true}`,
-      );
+      expect(
+        sortedJsonStringify({
+          b: { z: true, x: true, y: true },
+          a: true,
+          c: true,
+        }),
+      ).toEqual(`{"a":true,"b":{"x":true,"y":true,"z":true},"c":true}`);
     });
 
     it("sorts objects in arrays", () => {

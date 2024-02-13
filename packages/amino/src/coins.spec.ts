@@ -37,9 +37,18 @@ describe("coins", () => {
     it("works for string amounts", () => {
       expect(coin("0", "utoken")).toEqual({ amount: "0", denom: "utoken" });
       expect(coin("1", "utoken")).toEqual({ amount: "1", denom: "utoken" });
-      expect(coin("00123", "utoken")).toEqual({ amount: "123", denom: "utoken" });
-      expect(coin("12300", "utoken")).toEqual({ amount: "12300", denom: "utoken" });
-      expect(coin("9007199254740992", "utoken")).toEqual({ amount: "9007199254740992", denom: "utoken" });
+      expect(coin("00123", "utoken")).toEqual({
+        amount: "123",
+        denom: "utoken",
+      });
+      expect(coin("12300", "utoken")).toEqual({
+        amount: "12300",
+        denom: "utoken",
+      });
+      expect(coin("9007199254740992", "utoken")).toEqual({
+        amount: "9007199254740992",
+        denom: "utoken",
+      });
       // ETH supply (~118 mio ETH)
       expect(coin("118273505060000000000000000", "wei")).toEqual({
         amount: "118273505060000000000000000",

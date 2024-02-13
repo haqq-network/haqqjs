@@ -43,7 +43,9 @@ export class QueueingStreamingSocket {
     this.socket = new StreamingSocket(this.url, this.timeout);
     this.socket.events.subscribe({
       next: (event) => {
-        if (!this.eventProducerListener) throw new Error("No event producer listener set");
+        if (!this.eventProducerListener) {
+          throw new Error("No event producer listener set");
+        }
         this.eventProducerListener.next(event);
       },
       error: () => this.connectionStatusProducer.update(ConnectionStatus.Disconnected),
@@ -71,7 +73,9 @@ export class QueueingStreamingSocket {
     this.socket = new StreamingSocket(this.url, this.timeout);
     this.socket.events.subscribe({
       next: (event) => {
-        if (!this.eventProducerListener) throw new Error("No event producer listener set");
+        if (!this.eventProducerListener) {
+          throw new Error("No event producer listener set");
+        }
         this.eventProducerListener.next(event);
       },
       error: () => this.connectionStatusProducer.update(ConnectionStatus.Disconnected),

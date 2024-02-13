@@ -183,7 +183,10 @@ export class ModifyingSecp256k1HdWallet extends Secp256k1HdWallet {
   ): Promise<ModifyingSecp256k1HdWallet> {
     const mnemonicChecked = new EnglishMnemonic(mnemonic);
     const seed = await Bip39.mnemonicToSeed(mnemonicChecked, options.bip39Password);
-    return new ModifyingSecp256k1HdWallet(mnemonicChecked, { ...options, seed: seed });
+    return new ModifyingSecp256k1HdWallet(mnemonicChecked, {
+      ...options,
+      seed: seed,
+    });
   }
 
   public override async signAmino(signerAddress: string, signDoc: StdSignDoc): Promise<AminoSignResponse> {
@@ -209,7 +212,10 @@ export class ModifyingDirectSecp256k1HdWallet extends DirectSecp256k1HdWallet {
   ): Promise<DirectSecp256k1HdWallet> {
     const mnemonicChecked = new EnglishMnemonic(mnemonic);
     const seed = await Bip39.mnemonicToSeed(mnemonicChecked, options.bip39Password);
-    return new ModifyingDirectSecp256k1HdWallet(mnemonicChecked, { ...options, seed: seed });
+    return new ModifyingDirectSecp256k1HdWallet(mnemonicChecked, {
+      ...options,
+      seed: seed,
+    });
   }
 
   public override async signDirect(address: string, signDoc: SignDoc): Promise<DirectSignResponse> {

@@ -1,4 +1,3 @@
-import { fromBase64 } from "@cosmjs/encoding";
 import {
   Channel,
   Counterparty as ChannelCounterparty,
@@ -15,6 +14,7 @@ import {
   State as ConnectionState,
   Version,
 } from "cosmjs-types/ibc/core/connection/v1/connection";
+import { fromBase64 } from "@cosmjs/encoding";
 import Long from "long";
 
 // From scripts/simapp42/genesis-ibc.json

@@ -1,3 +1,5 @@
+import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
+import { TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
 import { fromBase64, toBase64 } from "@cosmjs/encoding";
 import {
   coins,
@@ -10,8 +12,6 @@ import {
   TxBodyEncodeObject,
 } from "@cosmjs/proto-signing";
 import { assert, sleep } from "@cosmjs/utils";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
 
 import { isMsgSendEncodeObject } from "./modules";
 import { DeliverTxResponse, isDeliverTxFailure, isDeliverTxSuccess, StargateClient } from "./stargateclient";
@@ -229,7 +229,9 @@ describe("StargateClient.getTx and .searchTx", () => {
       pendingWithoutSimapp();
       assert(sendSuccessful, "value must be set in beforeAll()");
       const client = await StargateClient.connect(simapp.tendermintUrl);
-      const results = await client.searchTx({ sentFromOrTo: sendSuccessful.sender });
+      const results = await client.searchTx({
+        sentFromOrTo: sendSuccessful.sender,
+      });
       expect(results.length).toBeGreaterThanOrEqual(1);
 
       // Check basic structure of all results
@@ -257,7 +259,9 @@ describe("StargateClient.getTx and .searchTx", () => {
       pendingWithoutSimapp();
       assert(sendSuccessful, "value must be set in beforeAll()");
       const client = await StargateClient.connect(simapp.tendermintUrl);
-      const results = await client.searchTx({ sentFromOrTo: sendSuccessful.recipient });
+      const results = await client.searchTx({
+        sentFromOrTo: sendSuccessful.recipient,
+      });
       expect(results.length).toBeGreaterThanOrEqual(1);
 
       // Check basic structure of all results
@@ -293,17 +297,23 @@ describe("StargateClient.getTx and .searchTx", () => {
       }
 
       {
-        const result = await client.searchTx(query, { minHeight: sendSuccessful.height - 1 });
+        const result = await client.searchTx(query, {
+          minHeight: sendSuccessful.height - 1,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { minHeight: sendSuccessful.height });
+        const result = await client.searchTx(query, {
+          minHeight: sendSuccessful.height,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { minHeight: sendSuccessful.height + 1 });
+        const result = await client.searchTx(query, {
+          minHeight: sendSuccessful.height + 1,
+        });
         expect(result.length).toEqual(0);
       }
     });
@@ -315,22 +325,30 @@ describe("StargateClient.getTx and .searchTx", () => {
       const query = { sentFromOrTo: sendSuccessful.recipient };
 
       {
-        const result = await client.searchTx(query, { maxHeight: 9999999999999 });
+        const result = await client.searchTx(query, {
+          maxHeight: 9999999999999,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { maxHeight: sendSuccessful.height + 1 });
+        const result = await client.searchTx(query, {
+          maxHeight: sendSuccessful.height + 1,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { maxHeight: sendSuccessful.height });
+        const result = await client.searchTx(query, {
+          maxHeight: sendSuccessful.height,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { maxHeight: sendSuccessful.height - 1 });
+        const result = await client.searchTx(query, {
+          maxHeight: sendSuccessful.height - 1,
+        });
         expect(result.length).toEqual(0);
       }
     });

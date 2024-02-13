@@ -77,8 +77,12 @@ export class Secp256k1 {
 
     const keypair = secp256k1.keyFromPrivate(privkey);
     // the `canonical` option ensures creation of lowS signature representations
-    const { r, s, recoveryParam } = keypair.sign(messageHash, { canonical: true });
-    if (typeof recoveryParam !== "number") throw new Error("Recovery param missing");
+    const { r, s, recoveryParam } = keypair.sign(messageHash, {
+      canonical: true,
+    });
+    if (typeof recoveryParam !== "number") {
+      throw new Error("Recovery param missing");
+    }
     return new ExtendedSecp256k1Signature(
       Uint8Array.from(r.toArray()),
       Uint8Array.from(s.toArray()),
@@ -121,7 +125,10 @@ export class Secp256k1 {
   }
 
   public static recoverPubkey(signature: ExtendedSecp256k1Signature, messageHash: Uint8Array): Uint8Array {
-    const signatureForElliptic = { r: toHex(signature.r()), s: toHex(signature.s()) };
+    const signatureForElliptic = {
+      r: toHex(signature.r()),
+      s: toHex(signature.s()),
+    };
     const point = secp256k1.recoverPubKey(messageHash, signatureForElliptic, signature.recovery);
     const keypair = secp256k1.keyFromPublic(point);
     return fromHex(keypair.getPublic(false, "hex"));

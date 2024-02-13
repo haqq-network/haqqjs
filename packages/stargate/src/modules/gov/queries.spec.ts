@@ -1,8 +1,4 @@
 import { coin, coins, makeCosmoshubPath } from "@cosmjs/amino";
-import { toAscii } from "@cosmjs/encoding";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert, sleep } from "@cosmjs/utils";
 import {
   ProposalStatus,
   TextProposal,
@@ -11,6 +7,10 @@ import {
   WeightedVoteOption,
 } from "cosmjs-types/cosmos/gov/v1beta1/gov";
 import { Any } from "cosmjs-types/google/protobuf/any";
+import { toAscii } from "@cosmjs/encoding";
+import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
+import { assert, sleep } from "@cosmjs/utils";
 import Long from "long";
 
 import { longify, QueryClient } from "../../queryclient";
@@ -231,10 +231,19 @@ describe("GovExtension", () => {
         status: ProposalStatus.PROPOSAL_STATUS_VOTING_PERIOD,
         finalTallyResult: { yes: "0", abstain: "0", no: "0", noWithVeto: "0" },
         submitTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
-        depositEndTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
+        depositEndTime: {
+          seconds: jasmine.any(Long),
+          nanos: jasmine.any(Number),
+        },
         totalDeposit: initialDeposit,
-        votingStartTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
-        votingEndTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
+        votingStartTime: {
+          seconds: jasmine.any(Long),
+          nanos: jasmine.any(Number),
+        },
+        votingEndTime: {
+          seconds: jasmine.any(Long),
+          nanos: jasmine.any(Number),
+        },
       });
 
       tmClient.disconnect();
@@ -257,10 +266,19 @@ describe("GovExtension", () => {
         status: ProposalStatus.PROPOSAL_STATUS_VOTING_PERIOD,
         finalTallyResult: { yes: "0", abstain: "0", no: "0", noWithVeto: "0" },
         submitTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
-        depositEndTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
+        depositEndTime: {
+          seconds: jasmine.any(Long),
+          nanos: jasmine.any(Number),
+        },
         totalDeposit: initialDeposit,
-        votingStartTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
-        votingEndTime: { seconds: jasmine.any(Long), nanos: jasmine.any(Number) },
+        votingStartTime: {
+          seconds: jasmine.any(Long),
+          nanos: jasmine.any(Number),
+        },
+        votingEndTime: {
+          seconds: jasmine.any(Long),
+          nanos: jasmine.any(Number),
+        },
       });
 
       tmClient.disconnect();

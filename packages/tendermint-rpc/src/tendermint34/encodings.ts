@@ -170,7 +170,9 @@ export function encodeTime(time: ReadonlyDateWithNanoseconds): Uint8Array {
 // See https://github.com/tendermint/go-amino/blob/v0.15.0/encoder.go#L180-L187
 export function encodeBytes(bytes: Uint8Array): Uint8Array {
   // Since we're only dealing with short byte arrays we don't need a full VarBuffer implementation yet
-  if (bytes.length >= 0x80) throw new Error("Not implemented for byte arrays of length 128 or more");
+  if (bytes.length >= 0x80) {
+    throw new Error("Not implemented for byte arrays of length 128 or more");
+  }
   return bytes.length ? Uint8Array.from([bytes.length, ...bytes]) : new Uint8Array();
 }
 

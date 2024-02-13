@@ -43,7 +43,10 @@ export function fromSeconds(seconds: number, nanos = 0): DateWithNanoseconds {
  * [.google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Timestamp)
  * or any other system that does not use millisecond precision.
  */
-export function toSeconds(date: ReadonlyDateWithNanoseconds): { seconds: number; nanos: number } {
+export function toSeconds(date: ReadonlyDateWithNanoseconds): {
+  seconds: number;
+  nanos: number;
+} {
   return {
     seconds: Math.floor(date.getTime() / 1000),
     nanos: (date.getTime() % 1000) * 1000000 + (date.nanoseconds ?? 0),

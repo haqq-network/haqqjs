@@ -50,7 +50,9 @@ export function setupGovExtension(base: QueryClient): GovExtension {
   return {
     gov: {
       params: async (parametersType: GovParamsType) => {
-        const response = await queryService.Params({ paramsType: parametersType });
+        const response = await queryService.Params({
+          paramsType: parametersType,
+        });
         return response;
       },
       proposals: async (
@@ -68,7 +70,9 @@ export function setupGovExtension(base: QueryClient): GovExtension {
         return response;
       },
       proposal: async (proposalId: GovProposalId) => {
-        const response = await queryService.Proposal({ proposalId: longify(proposalId) });
+        const response = await queryService.Proposal({
+          proposalId: longify(proposalId),
+        });
         return response;
       },
       deposits: async (proposalId: GovProposalId, paginationKey?: Uint8Array) => {

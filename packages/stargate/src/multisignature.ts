@@ -19,7 +19,10 @@ export function makeCompactBitArray(bits: readonly boolean[]): CompactBitArray {
     if (value) bytes[bytePos] |= 0b1 << (8 - 1 - bitPos);
   });
 
-  return CompactBitArray.fromPartial({ elems: bytes, extraBitsStored: extraBits });
+  return CompactBitArray.fromPartial({
+    elems: bytes,
+    extraBitsStored: extraBits,
+  });
 }
 
 /**
@@ -55,7 +58,9 @@ export function makeMultisignedTx(
     modeInfo: {
       multi: {
         bitarray: makeCompactBitArray(signers),
-        modeInfos: signaturesList.map((_) => ({ single: { mode: SignMode.SIGN_MODE_LEGACY_AMINO_JSON } })),
+        modeInfos: signaturesList.map((_) => ({
+          single: { mode: SignMode.SIGN_MODE_LEGACY_AMINO_JSON },
+        })),
       },
     },
     sequence: Long.fromNumber(sequence),

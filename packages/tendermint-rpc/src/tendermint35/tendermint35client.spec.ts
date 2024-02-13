@@ -287,15 +287,25 @@ function defaultTestSuite(rpcFactory: () => RpcClient, expected: ExpectedValues)
       pendingWithoutTendermint();
       const client = await Tendermint35Client.create(rpcFactory());
 
-      const query = buildQuery({ raw: "block.height >= 1 AND block.height <= 3" });
+      const query = buildQuery({
+        raw: "block.height >= 1 AND block.height <= 3",
+      });
 
       // expect one page of results
-      const s1 = await client.blockSearch({ query: query, page: 1, per_page: 2 });
+      const s1 = await client.blockSearch({
+        query: query,
+        page: 1,
+        per_page: 2,
+      });
       expect(s1.totalCount).toEqual(3);
       expect(s1.blocks.length).toEqual(2);
 
       // second page
-      const s2 = await client.blockSearch({ query: query, page: 2, per_page: 2 });
+      const s2 = await client.blockSearch({
+        query: query,
+        page: 2,
+        per_page: 2,
+      });
       expect(s2.totalCount).toEqual(3);
       expect(s2.blocks.length).toEqual(1);
 
@@ -306,7 +316,9 @@ function defaultTestSuite(rpcFactory: () => RpcClient, expected: ExpectedValues)
       pendingWithoutTendermint();
       const client = await Tendermint35Client.create(rpcFactory());
 
-      const query = buildQuery({ raw: "block.height >= 1 AND block.height <= 3" });
+      const query = buildQuery({
+        raw: "block.height >= 1 AND block.height <= 3",
+      });
 
       const sall = await client.blockSearchAll({ query: query, per_page: 2 });
       expect(sall.totalCount).toEqual(3);
@@ -739,7 +751,9 @@ function websocketTestSuite(rpcFactory: () => RpcClient, expected: ExpectedValue
 
     const events: responses.TxEvent[] = [];
     const client = await Tendermint35Client.create(rpcFactory());
-    const query = buildQuery({ tags: [{ key: "app.creator", value: expected.appCreator }] });
+    const query = buildQuery({
+      tags: [{ key: "app.creator", value: expected.appCreator }],
+    });
     const stream = client.subscribeTx(query);
     expect(stream).toBeTruthy();
     const subscription = stream.subscribe({

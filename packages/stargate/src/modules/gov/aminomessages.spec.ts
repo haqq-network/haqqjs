@@ -97,8 +97,14 @@ describe("AminoTypes", () => {
         proposalId: Long.fromNumber(5),
         voter: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
         options: [
-          { option: VoteOption.VOTE_OPTION_NO_WITH_VETO, weight: "700000000000000000" /* 0.7 */ },
-          { option: VoteOption.VOTE_OPTION_NO, weight: "300000000000000000" /* 0.3 */ },
+          {
+            option: VoteOption.VOTE_OPTION_NO_WITH_VETO,
+            weight: "700000000000000000" /* 0.7 */,
+          },
+          {
+            option: VoteOption.VOTE_OPTION_NO,
+            weight: "300000000000000000" /* 0.3 */,
+          },
         ],
       };
       const aminoTypes = new AminoTypes(createGovAminoConverters());
@@ -112,8 +118,14 @@ describe("AminoTypes", () => {
           proposal_id: "5",
           voter: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
           options: [
-            { option: VoteOption.VOTE_OPTION_NO_WITH_VETO, weight: "0.700000000000000000" },
-            { option: VoteOption.VOTE_OPTION_NO, weight: "0.300000000000000000" },
+            {
+              option: VoteOption.VOTE_OPTION_NO_WITH_VETO,
+              weight: "0.700000000000000000",
+            },
+            {
+              option: VoteOption.VOTE_OPTION_NO,
+              weight: "0.300000000000000000",
+            },
           ],
         },
       };
@@ -214,7 +226,10 @@ describe("AminoTypes", () => {
         proposalId: Long.fromNumber(5),
         voter: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
         options: [
-          { option: VoteOption.VOTE_OPTION_NO_WITH_VETO, weight: "750000000000000000" },
+          {
+            option: VoteOption.VOTE_OPTION_NO_WITH_VETO,
+            weight: "750000000000000000",
+          },
           { option: VoteOption.VOTE_OPTION_NO, weight: "250000000000000000" },
         ],
       };

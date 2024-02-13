@@ -5,7 +5,5 @@
     "outDir": "build",
     "rootDir": "src"
   },
-  "include": [
-    "src/workers/**/*"
-  ]
+  "include": ["src/workers/**/*.ts", "src/workers/**/*.js"]
 }

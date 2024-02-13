@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention,no-bitwise */
 import { Secp256k1HdWallet } from "@cosmjs/amino";
+import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
+import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
+import { BasicAllowance } from "cosmjs-types/cosmos/feegrant/v1beta1/feegrant";
+import { MsgGrantAllowance } from "cosmjs-types/cosmos/feegrant/v1beta1/tx";
+import { MsgDelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
+import { AuthInfo, TxBody, TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
+import { Any } from "cosmjs-types/google/protobuf/any";
 import {
   coin,
   coins,
@@ -11,13 +18,6 @@ import {
 import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
 import { assert, sleep } from "@cosmjs/utils";
 import { DeepPartial } from "cosmjs-types";
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { BasicAllowance } from "cosmjs-types/cosmos/feegrant/v1beta1/feegrant";
-import { MsgGrantAllowance } from "cosmjs-types/cosmos/feegrant/v1beta1/tx";
-import { MsgDelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { AuthInfo, TxBody, TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { Any } from "cosmjs-types/google/protobuf/any";
 import Long from "long";
 import protobuf from "protobufjs/minimal";
 
@@ -255,7 +255,10 @@ describe("SigningStargateClient", () => {
           coin(1234, "ucosm"),
           "fooPort",
           "fooChannel",
-          { revisionHeight: Long.fromNumber(123), revisionNumber: Long.fromNumber(456) },
+          {
+            revisionHeight: Long.fromNumber(123),
+            revisionNumber: Long.fromNumber(456),
+          },
           Math.floor(Date.now() / 1000) + 60,
           fee,
           memo,
@@ -304,7 +307,10 @@ describe("SigningStargateClient", () => {
           coin(1234, "ucosm"),
           "fooPort",
           "fooChannel",
-          { revisionHeight: Long.fromNumber(123), revisionNumber: Long.fromNumber(456) },
+          {
+            revisionHeight: Long.fromNumber(123),
+            revisionNumber: Long.fromNumber(456),
+          },
           Math.floor(Date.now() / 1000) + 60,
           fee,
           memo,

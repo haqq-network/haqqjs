@@ -48,16 +48,16 @@ $ cosmjs-cli
 const account = await client.getAccount(faucetAddress);
 
 // Craft a send transaction
-const emptyAddress = Bech32.encode("cosmos", Random.getBytes(20));
-const memo = "My very first tx!";
+const emptyAddress = Bech32.encode('cosmos', Random.getBytes(20));
+const memo = 'My very first tx!';
 const msgSend = {
   fromAddress: faucetAddress,
   toAddress: emptyAddress,
-  amount: coins(1234, "ucosm"),
+  amount: coins(1234, 'ucosm'),
 };
 
 const msgAny = {
-  typeUrl: "/cosmos.bank.v1beta1.MsgSend",
+  typeUrl: '/cosmos.bank.v1beta1.MsgSend',
   value: msgSend,
 };
 
@@ -87,13 +87,13 @@ Setup Account:
 ```ts
 // you can hand-copy a mnemonic here, but this is easiest for reuse between sessions
 // it creates a random one first time, then reads it in the future
-const mnemonic = loadOrCreateMnemonic("foo.key");
+const mnemonic = loadOrCreateMnemonic('foo.key');
 const { address, client } = await connect(mnemonic, {});
 address;
 
 client.getAccount();
 // if empty - this only works with CosmWasm
-hitFaucet(defaultFaucetUrl, address, "COSM");
+hitFaucet(defaultFaucetUrl, address, 'COSM');
 client.getAccount();
 ```
 
@@ -120,12 +120,12 @@ Instantiate and use ERC20 contract:
 // no money? no problem.
 // let's make our own s**coin - replace "FOO" with something else to avoid duplicates
 const initMsg = {
-  name: "Foo Coin",
-  symbol: "FOO",
+  name: 'Foo Coin',
+  symbol: 'FOO',
   decimals: 2,
-  initial_balances: [{ address, amount: "123456789" }],
+  initial_balances: [{ address, amount: '123456789' }],
 };
-const foo = await client.instantiate(1, initMsg, "FOO");
+const foo = await client.instantiate(1, initMsg, 'FOO');
 foo;
 foo.logs[0].events[0];
 const fooAddr = foo.contractAddress;
@@ -135,17 +135,17 @@ const fooAddr2 = await client
   .getContracts(1)
   .then(
     (contracts) =>
-      contracts.filter((x) => x.label == "FOO").map((x) => x.address)[0],
+      contracts.filter((x) => x.label == 'FOO').map((x) => x.address)[0],
   )[(fooAddr, fooAddr2)];
 
 // now we have some cash
 client.queryContractSmart(fooAddr, { balance: { address } });
 
-const rcpt = await randomAddress("cosmos");
+const rcpt = await randomAddress('cosmos');
 rcpt;
 client.queryContractSmart(fooAddr, { balance: { address: rcpt } });
 
-const execMsg = { transfer: { recipient: rcpt, amount: "808" } };
+const execMsg = { transfer: { recipient: rcpt, amount: '808' } };
 const exec = await client.execute(fooAddr, execMsg);
 exec;
 exec.logs[0].events[0];
@@ -158,7 +158,7 @@ Or just send tokens:
 client.getAccount(rcpt);
 
 const sent = await client.sendTokens(rcpt, [
-  { amount: "1234", denom: "ucosm" },
+  { amount: '1234', denom: 'ucosm' },
 ]);
 sent;
 foo.logs[0].events[0];
@@ -247,7 +247,7 @@ echo "cousin nephew vintage label empty sunny cargo mushroom photo side clarify 
 Load it up in cosmjs: `./bin/cosmjs-cli --init examples/helpers.ts`
 
 ```ts
-const mnemonic = loadOrCreateMnemonic("wasmcli.key");
+const mnemonic = loadOrCreateMnemonic('wasmcli.key');
 const { address, client } = await connect(mnemonic, regenOptions);
 
 // this should match what you got on the cli - showing compatibility

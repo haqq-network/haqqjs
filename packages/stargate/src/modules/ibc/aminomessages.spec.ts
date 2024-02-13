@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { coin } from "@cosmjs/proto-signing";
 import { MsgTransfer } from "cosmjs-types/ibc/applications/transfer/v1/tx";
+import { coin } from "@cosmjs/proto-signing";
 import Long from "long";
 
 import { AminoTypes } from "../../aminotypes";

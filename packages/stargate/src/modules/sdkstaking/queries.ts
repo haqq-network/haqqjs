@@ -154,7 +154,9 @@ export function setupSdkStakingExtension(base: QueryClient): SdkStakingExtension
         return response;
       },
       validator: async (validatorAddress: string) => {
-        const response = await queryService.Validator({ validatorAddr: validatorAddress });
+        const response = await queryService.Validator({
+          validatorAddr: validatorAddress,
+        });
         return response;
       },
       validatorDelegations: async (validatorAddress: string, paginationKey?: Uint8Array) => {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { coins } from "@cosmjs/proto-signing";
 import { MsgMultiSend, MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
+import { coins } from "@cosmjs/proto-signing";
 
 import { AminoTypes } from "../../aminotypes";
 import { AminoMsgMultiSend, AminoMsgSend, createBankAminoConverters } from "./aminomessages";
@@ -32,12 +32,24 @@ describe("AminoTypes", () => {
     it("works for MsgMultiSend", () => {
       const msg: MsgMultiSend = {
         inputs: [
-          { address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6", coins: coins(1234, "ucosm") },
-          { address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5", coins: coins(5678, "ucosm") },
+          {
+            address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6",
+            coins: coins(1234, "ucosm"),
+          },
+          {
+            address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5",
+            coins: coins(5678, "ucosm"),
+          },
         ],
         outputs: [
-          { address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k", coins: coins(6000, "ucosm") },
-          { address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx", coins: coins(912, "ucosm") },
+          {
+            address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
+            coins: coins(6000, "ucosm"),
+          },
+          {
+            address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx",
+            coins: coins(912, "ucosm"),
+          },
         ],
       };
       const aminoTypes = new AminoTypes(createBankAminoConverters());
@@ -49,12 +61,24 @@ describe("AminoTypes", () => {
         type: "cosmos-sdk/MsgMultiSend",
         value: {
           inputs: [
-            { address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6", coins: coins(1234, "ucosm") },
-            { address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5", coins: coins(5678, "ucosm") },
+            {
+              address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6",
+              coins: coins(1234, "ucosm"),
+            },
+            {
+              address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5",
+              coins: coins(5678, "ucosm"),
+            },
           ],
           outputs: [
-            { address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k", coins: coins(6000, "ucosm") },
-            { address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx", coins: coins(912, "ucosm") },
+            {
+              address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
+              coins: coins(6000, "ucosm"),
+            },
+            {
+              address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx",
+              coins: coins(912, "ucosm"),
+            },
           ],
         },
       };
@@ -89,24 +113,48 @@ describe("AminoTypes", () => {
         type: "cosmos-sdk/MsgMultiSend",
         value: {
           inputs: [
-            { address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6", coins: coins(1234, "ucosm") },
-            { address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5", coins: coins(5678, "ucosm") },
+            {
+              address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6",
+              coins: coins(1234, "ucosm"),
+            },
+            {
+              address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5",
+              coins: coins(5678, "ucosm"),
+            },
           ],
           outputs: [
-            { address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k", coins: coins(6000, "ucosm") },
-            { address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx", coins: coins(912, "ucosm") },
+            {
+              address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
+              coins: coins(6000, "ucosm"),
+            },
+            {
+              address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx",
+              coins: coins(912, "ucosm"),
+            },
           ],
         },
       };
       const msg = new AminoTypes(createBankAminoConverters()).fromAmino(aminoMsg);
       const expectedValue: MsgMultiSend = {
         inputs: [
-          { address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6", coins: coins(1234, "ucosm") },
-          { address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5", coins: coins(5678, "ucosm") },
+          {
+            address: "cosmos1pkptre7fdkl6gfrzlesjjvhxhlc3r4gmmk8rs6",
+            coins: coins(1234, "ucosm"),
+          },
+          {
+            address: "cosmos10dyr9899g6t0pelew4nvf4j5c3jcgv0r73qga5",
+            coins: coins(5678, "ucosm"),
+          },
         ],
         outputs: [
-          { address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k", coins: coins(6000, "ucosm") },
-          { address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx", coins: coins(912, "ucosm") },
+          {
+            address: "cosmos1xy4yqngt0nlkdcenxymg8tenrghmek4nmqm28k",
+            coins: coins(6000, "ucosm"),
+          },
+          {
+            address: "cosmos142u9fgcjdlycfcez3lw8x6x5h7rfjlnfhpw2lx",
+            coins: coins(912, "ucosm"),
+          },
         ],
       };
       expect(msg).toEqual({

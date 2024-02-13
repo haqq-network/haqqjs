@@ -101,7 +101,9 @@ function extractKdfConfigurationV1(doc: any): KdfConfiguration {
 
 export function extractKdfConfiguration(serialization: string): KdfConfiguration {
   const root = JSON.parse(serialization);
-  if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+  if (!isNonNullObject(root)) {
+    throw new Error("Root document is not an object.");
+  }
 
   switch ((root as any).type) {
     case serializationTypeV1:
@@ -177,7 +179,9 @@ export class DirectEthSecp256k1HdWallet implements OfflineDirectSigner {
     password: string,
   ): Promise<DirectEthSecp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     switch ((root as any).type) {
       case serializationTypeV1:
         return DirectEthSecp256k1HdWallet.deserializeTypeV1(serialization, password);
@@ -199,7 +203,9 @@ export class DirectEthSecp256k1HdWallet implements OfflineDirectSigner {
     encryptionKey: Uint8Array,
   ): Promise<DirectEthSecp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const untypedRoot: any = root;
     switch (untypedRoot.type) {
       case serializationTypeV1: {
@@ -211,7 +217,9 @@ export class DirectEthSecp256k1HdWallet implements OfflineDirectSigner {
         const decryptedDocument = JSON.parse(fromUtf8(decryptedBytes));
         const { mnemonic, accounts } = decryptedDocument;
         assert(typeof mnemonic === "string");
-        if (!Array.isArray(accounts)) throw new Error("Property 'accounts' is not an array");
+        if (!Array.isArray(accounts)) {
+          throw new Error("Property 'accounts' is not an array");
+        }
         if (!accounts.every((account) => isDerivationJson(account))) {
           throw new Error("Account is not in the correct format.");
         }
@@ -235,7 +243,9 @@ export class DirectEthSecp256k1HdWallet implements OfflineDirectSigner {
     password: string,
   ): Promise<DirectEthSecp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const encryptionKey = await executeKdf(password, (root as any).kdf);
     return DirectEthSecp256k1HdWallet.deserializeWithEncryptionKey(serialization, encryptionKey);
   }

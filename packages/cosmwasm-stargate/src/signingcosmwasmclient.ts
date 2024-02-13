@@ -217,7 +217,10 @@ export class SigningCosmWasmClient extends CosmWasmClient {
     super(tmClient);
     const {
       registry = createDefaultRegistry(),
-      aminoTypes = new AminoTypes({ ...createWasmAminoConverters(), ...createBankAminoConverters() }),
+      aminoTypes = new AminoTypes({
+        ...createWasmAminoConverters(),
+        ...createBankAminoConverters(),
+      }),
     } = options;
     this.registry = registry;
     this.aminoTypes = aminoTypes;
@@ -481,7 +484,11 @@ export class SigningCosmWasmClient extends CosmWasmClient {
   ): Promise<DeliverTxResponse> {
     const delegateMsg: MsgDelegateEncodeObject = {
       typeUrl: "/cosmos.staking.v1beta1.MsgDelegate",
-      value: MsgDelegate.fromPartial({ delegatorAddress: delegatorAddress, validatorAddress, amount }),
+      value: MsgDelegate.fromPartial({
+        delegatorAddress: delegatorAddress,
+        validatorAddress,
+        amount,
+      }),
     };
     return this.signAndBroadcast(delegatorAddress, [delegateMsg], fee, memo);
   }
@@ -495,7 +502,11 @@ export class SigningCosmWasmClient extends CosmWasmClient {
   ): Promise<DeliverTxResponse> {
     const undelegateMsg: MsgUndelegateEncodeObject = {
       typeUrl: "/cosmos.staking.v1beta1.MsgUndelegate",
-      value: MsgUndelegate.fromPartial({ delegatorAddress: delegatorAddress, validatorAddress, amount }),
+      value: MsgUndelegate.fromPartial({
+        delegatorAddress: delegatorAddress,
+        validatorAddress,
+        amount,
+      }),
     };
     return this.signAndBroadcast(delegatorAddress, [undelegateMsg], fee, memo);
   }
@@ -508,7 +519,10 @@ export class SigningCosmWasmClient extends CosmWasmClient {
   ): Promise<DeliverTxResponse> {
     const withdrawDelegatorRewardMsg: MsgWithdrawDelegatorRewardEncodeObject = {
       typeUrl: "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
-      value: MsgWithdrawDelegatorReward.fromPartial({ delegatorAddress: delegatorAddress, validatorAddress }),
+      value: MsgWithdrawDelegatorReward.fromPartial({
+        delegatorAddress: delegatorAddress,
+        validatorAddress,
+      }),
     };
     return this.signAndBroadcast(delegatorAddress, [withdrawDelegatorRewardMsg], fee, memo);
   }

@@ -97,7 +97,10 @@ export async function pbkdf2Sha512Noble(
   iterations: number,
   keylen: number,
 ): Promise<Uint8Array> {
-  return noblePbkdf2Async(nobleSha512, secret, salt, { c: iterations, dkLen: keylen });
+  return noblePbkdf2Async(nobleSha512, secret, salt, {
+    c: iterations,
+    dkLen: keylen,
+  });
 }
 
 /**

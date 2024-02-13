@@ -21,7 +21,9 @@ export function isUint8Array(data: unknown): data is Uint8Array {
   // https://medium.com/@simonwarta/limitations-of-the-instanceof-operator-f4bcdbe7a400
 
   // Use check that was discussed in https://github.com/crypto-browserify/pbkdf2/pull/81
-  if (Object.prototype.toString.call(data) !== "[object Uint8Array]") return false;
+  if (Object.prototype.toString.call(data) !== "[object Uint8Array]") {
+    return false;
+  }
 
   if (typeof Buffer !== "undefined" && typeof Buffer.isBuffer !== "undefined") {
     // Buffer.isBuffer is available at runtime

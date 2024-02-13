@@ -12,7 +12,13 @@ describe("encoding", () => {
 
       // echo -n '{"num":3.45,"null":null,"bool":true,"obj":{"str":"bar"}}' | base64
       expect(
-        toBinary({ num: 3.45, null: null, bool: true, obj: { str: "bar" }, omitted: undefined }),
+        toBinary({
+          num: 3.45,
+          null: null,
+          bool: true,
+          obj: { str: "bar" },
+          omitted: undefined,
+        }),
       ).toEqual("eyJudW0iOjMuNDUsIm51bGwiOm51bGwsImJvb2wiOnRydWUsIm9iaiI6eyJzdHIiOiJiYXIifX0=");
     });
 

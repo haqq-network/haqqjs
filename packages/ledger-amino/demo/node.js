@@ -41,12 +41,23 @@ async function signMsgSend(signer, accountNumber, fromAddress, toAddress) {
 
 async function run() {
   const ledgerTransport = await TransportNodeHid.create(interactiveTimeout, interactiveTimeout);
-  const signer = new LedgerSigner(ledgerTransport, { testModeAllowed: true, hdPaths: paths });
+  const signer = new LedgerSigner(ledgerTransport, {
+    testModeAllowed: true,
+    hdPaths: paths,
+  });
 
   const accounts = await signer.getAccounts();
-  const printableAccounts = accounts.map((account) => ({ ...account, pubkey: toBase64(account.pubkey) }));
+  const printableAccounts = accounts.map((account) => ({
+    ...account,
+    pubkey: toBase64(account.pubkey),
+  }));
   console.info("Accounts from Ledger device:");
-  console.table(printableAccounts.map((account, i) => ({ ...account, hdPath: pathToString(paths[i]) })));
+  console.table(
+    printableAccounts.map((account, i) => ({
+      ...account,
+      hdPath: pathToString(paths[i]),
+    })),
+  );
 
   console.info("Showing address of first account on device");
   await signer.showAddress();

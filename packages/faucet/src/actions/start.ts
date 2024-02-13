@@ -21,7 +21,9 @@ export async function start(args: readonly string[]): Promise<void> {
   console.info(`Connected to network: ${chainId}`);
 
   // Faucet
-  if (!constants.mnemonic) throw new Error("The FAUCET_MNEMONIC environment variable is not set");
+  if (!constants.mnemonic) {
+    throw new Error("The FAUCET_MNEMONIC environment variable is not set");
+  }
   const logging = true;
   const pathBuilder = makePathBuilder(constants.pathPattern);
   const faucet = await Faucet.make(
@@ -48,7 +50,10 @@ export async function start(args: readonly string[]): Promise<void> {
   setInterval(async () => faucet.refill(), 60_000); // ever 60 seconds
 
   console.info("Creating webserver ...");
-  const server = new Webserver(faucet, { nodeUrl: blockchainBaseUrl, chainId: chainId });
+  const server = new Webserver(faucet, {
+    nodeUrl: blockchainBaseUrl,
+    chainId: chainId,
+  });
   server.start(constants.port);
   console.info(`Try "curl -sS http://localhost:${constants.port}/status | jq" to check the status.`);
 }

@@ -1,5 +1,5 @@
-import { coin } from "@cosmjs/proto-signing";
 import { MsgDelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
+import { coin } from "@cosmjs/proto-signing";
 
 import { AminoTypes } from "./aminotypes";
 import { createBankAminoConverters, createSdkStakingAminoConverters } from "./modules";
@@ -194,7 +194,9 @@ describe("AminoTypes", () => {
 
     it("throws for types which are not on chain yet", () => {
       expect(() => {
-        new AminoTypes({ "/cosmos.feegrant.v1beta1.MsgRevokeAllowance": "not_supported_by_chain" }).toAmino({
+        new AminoTypes({
+          "/cosmos.feegrant.v1beta1.MsgRevokeAllowance": "not_supported_by_chain",
+        }).toAmino({
           typeUrl: "/cosmos.feegrant.v1beta1.MsgRevokeAllowance",
           value: 0,
         });

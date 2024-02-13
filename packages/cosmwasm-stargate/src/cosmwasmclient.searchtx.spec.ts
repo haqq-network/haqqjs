@@ -230,7 +230,9 @@ describe("CosmWasmClient.getTx and .searchTx", () => {
       pendingWithoutWasmd();
       assert(sendSuccessful, "value must be set in beforeAll()");
       const client = await CosmWasmClient.connect(wasmd.endpoint);
-      const results = await client.searchTx({ sentFromOrTo: sendSuccessful.sender });
+      const results = await client.searchTx({
+        sentFromOrTo: sendSuccessful.sender,
+      });
       expect(results.length).toBeGreaterThanOrEqual(1);
 
       // Check basic structure of all results
@@ -258,7 +260,9 @@ describe("CosmWasmClient.getTx and .searchTx", () => {
       pendingWithoutWasmd();
       assert(sendSuccessful, "value must be set in beforeAll()");
       const client = await CosmWasmClient.connect(wasmd.endpoint);
-      const results = await client.searchTx({ sentFromOrTo: sendSuccessful.recipient });
+      const results = await client.searchTx({
+        sentFromOrTo: sendSuccessful.recipient,
+      });
       expect(results.length).toBeGreaterThanOrEqual(1);
 
       // Check basic structure of all results
@@ -294,17 +298,23 @@ describe("CosmWasmClient.getTx and .searchTx", () => {
       }
 
       {
-        const result = await client.searchTx(query, { minHeight: sendSuccessful.height - 1 });
+        const result = await client.searchTx(query, {
+          minHeight: sendSuccessful.height - 1,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { minHeight: sendSuccessful.height });
+        const result = await client.searchTx(query, {
+          minHeight: sendSuccessful.height,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { minHeight: sendSuccessful.height + 1 });
+        const result = await client.searchTx(query, {
+          minHeight: sendSuccessful.height + 1,
+        });
         expect(result.length).toEqual(0);
       }
     });
@@ -316,22 +326,30 @@ describe("CosmWasmClient.getTx and .searchTx", () => {
       const query = { sentFromOrTo: sendSuccessful.recipient };
 
       {
-        const result = await client.searchTx(query, { maxHeight: 9999999999999 });
+        const result = await client.searchTx(query, {
+          maxHeight: 9999999999999,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { maxHeight: sendSuccessful.height + 1 });
+        const result = await client.searchTx(query, {
+          maxHeight: sendSuccessful.height + 1,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { maxHeight: sendSuccessful.height });
+        const result = await client.searchTx(query, {
+          maxHeight: sendSuccessful.height,
+        });
         expect(result.length).toEqual(1);
       }
 
       {
-        const result = await client.searchTx(query, { maxHeight: sendSuccessful.height - 1 });
+        const result = await client.searchTx(query, {
+          maxHeight: sendSuccessful.height - 1,
+        });
         expect(result.length).toEqual(0);
       }
     });

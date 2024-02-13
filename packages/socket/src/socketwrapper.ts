@@ -1,4 +1,4 @@
-import WebSocket from "isomorphic-ws";
+import WebSocket, { ErrorEvent } from "isomorphic-ws";
 
 function environmentIsNodeJs(): boolean {
   return (
@@ -76,10 +76,10 @@ export class SocketWrapper {
   public connect(): void {
     const socket = new WebSocket(this.url);
 
-    socket.onerror = (error) => {
+    socket.onerror = (event: ErrorEvent) => {
       this.clearTimeout();
       if (this.errorHandler) {
-        this.errorHandler(error);
+        this.errorHandler(event.error);
       }
     };
     socket.onmessage = (messageEvent) => {

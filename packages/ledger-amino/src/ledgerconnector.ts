@@ -1,4 +1,10 @@
-import { encodeSecp256k1Pubkey, makeCosmoshubPath, pubkeyToAddress, pubkeyToAddressHex, Secp256k1Pubkey } from "@cosmjs/amino";
+import {
+  encodeSecp256k1Pubkey,
+  makeCosmoshubPath,
+  pubkeyToAddress,
+  pubkeyToAddressHex,
+  Secp256k1Pubkey,
+} from "@cosmjs/amino";
 import { HdPath, Secp256k1Signature } from "@cosmjs/crypto";
 import { fromUtf8 } from "@cosmjs/encoding";
 import { assert } from "@cosmjs/utils";

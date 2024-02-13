@@ -62,7 +62,10 @@ class RpcEventProducer implements Producer<SubscriptionEvent> {
     this.running = false;
     // Tell the server we are done in order to save resources. We cannot wait for the result.
     // This may fail when socket connection is not open, thus ignore errors in queueRequest
-    const endRequest: JsonRpcRequest = { ...this.request, method: "unsubscribe" };
+    const endRequest: JsonRpcRequest = {
+      ...this.request,
+      method: "unsubscribe",
+    };
     try {
       this.socket.queueRequest(JSON.stringify(endRequest));
     } catch (error) {

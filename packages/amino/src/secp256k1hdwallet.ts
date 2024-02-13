@@ -11,10 +11,10 @@ import {
   Slip10Curve,
   stringToPath,
 } from "@cosmjs/crypto";
-import { fromBase64, fromUtf8, toBase64, toUtf8, Bech32 } from "@cosmjs/encoding";
+import { Bech32, fromBase64, fromUtf8, toBase64, toUtf8 } from "@cosmjs/encoding";
 import { assert, isNonNullObject } from "@cosmjs/utils";
 
-import { rawSecp256k1PubkeyToRawAddress, ethAddressChecksumRaw } from "./addresses";
+import { ethAddressChecksumRaw, rawSecp256k1PubkeyToRawAddress } from "./addresses";
 import { makeCosmoshubPath } from "./paths";
 import { encodeSecp256k1Signature } from "./signature";
 import { serializeSignDoc, StdSignDoc } from "./signdoc";
@@ -93,7 +93,9 @@ function extractKdfConfigurationV1(doc: any): KdfConfiguration {
 
 export function extractKdfConfiguration(serialization: string): KdfConfiguration {
   const root = JSON.parse(serialization);
-  if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+  if (!isNonNullObject(root)) {
+    throw new Error("Root document is not an object.");
+  }
 
   switch ((root as any).type) {
     case serializationTypeV1:
@@ -174,7 +176,9 @@ export class Secp256k1HdWallet implements OfflineAminoSigner {
    */
   public static async deserialize(serialization: string, password: string): Promise<Secp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     switch ((root as any).type) {
       case serializationTypeV1:
         return Secp256k1HdWallet.deserializeTypeV1(serialization, password);
@@ -197,7 +201,9 @@ export class Secp256k1HdWallet implements OfflineAminoSigner {
     encryptionKey: Uint8Array,
   ): Promise<Secp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const untypedRoot: any = root;
     switch (untypedRoot.type) {
       case serializationTypeV1: {
@@ -209,7 +215,9 @@ export class Secp256k1HdWallet implements OfflineAminoSigner {
         const decryptedDocument = JSON.parse(fromUtf8(decryptedBytes));
         const { mnemonic, accounts } = decryptedDocument;
         assert(typeof mnemonic === "string");
-        if (!Array.isArray(accounts)) throw new Error("Property 'accounts' is not an array");
+        if (!Array.isArray(accounts)) {
+          throw new Error("Property 'accounts' is not an array");
+        }
         if (!accounts.every((account) => isDerivationJson(account))) {
           throw new Error("Account is not in the correct format.");
         }
@@ -233,7 +241,9 @@ export class Secp256k1HdWallet implements OfflineAminoSigner {
     password: string,
   ): Promise<Secp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const encryptionKey = await executeKdf(password, (root as any).kdf);
     return Secp256k1HdWallet.deserializeWithEncryptionKey(serialization, encryptionKey);
   }
@@ -266,7 +276,7 @@ export class Secp256k1HdWallet implements OfflineAminoSigner {
       algo: algo,
       pubkey: pubkey,
       address: address,
-      addressHex: addressHex
+      addressHex: addressHex,
     }));
   }
 
@@ -354,7 +364,7 @@ export class Secp256k1HdWallet implements OfflineAminoSigner {
           privkey: privkey,
           pubkey: pubkey,
           address: address,
-          addressHex: addressHex
+          addressHex: addressHex,
         };
       }),
     );

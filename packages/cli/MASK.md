@@ -15,7 +15,7 @@ Ensure the account is set up:
 ```ts
 // you can hand-copy a mnemonic here, but this is easiest for reuse between sessions
 // it creates a random one first time, then reads it in the future
-const mnemonic = loadOrCreateMnemonic("foo.key");
+const mnemonic = loadOrCreateMnemonic('foo.key');
 const { address, client } = await connect(mnemonic, {});
 address;
 client.getAccount();
@@ -29,7 +29,7 @@ the hash is
 following will check if it is already uploaded:
 
 ```ts
-const hash = "1f50bbff503fd9c7bfe713bbf42b309cf88ef299fa76e0242051c9a7e25649a3";
+const hash = '1f50bbff503fd9c7bfe713bbf42b309cf88ef299fa76e0242051c9a7e25649a3';
 client.getCodes().then((codes) => codes.filter((x) => x.checksum === hash));
 ```
 
@@ -38,17 +38,17 @@ If it is not uploaded, we will upload it:
 ```ts
 // Either download the code
 const wasmUrl =
-  "https://github.com/CosmWasm/cosmwasm-examples/blob/mask-0.1.0/mask/contract.wasm?raw=true";
+  'https://github.com/CosmWasm/cosmwasm-examples/blob/mask-0.1.0/mask/contract.wasm?raw=true';
 const wasm = await downloadWasm(wasmUrl);
 
 // Or load from local file
-const wasmFile = ".../cosmwasm-examples/mask/contract.wasm";
+const wasmFile = '.../cosmwasm-examples/mask/contract.wasm';
 const wasm = fs.readFileSync(wasmFile);
 
 // Then upload it
 const up = await client.upload(wasm, {
-  source: "https://crates.io/api/v1/crates/cw-mask/0.1.0/download",
-  builder: "confio/cosmwasm-opt:0.7.3",
+  source: 'https://crates.io/api/v1/crates/cw-mask/0.1.0/download',
+  builder: 'confio/cosmwasm-opt:0.7.3',
 });
 up;
 up.logs[0].events[0];
@@ -62,13 +62,13 @@ const codes = await client.getCodes();
 const codeId = codes.filter((x) => x.checksum === hash).map((x) => x.id)[0];
 
 // instantiate one contract
-const maskResp = await client.instantiate(codeId, {}, "My Mask");
+const maskResp = await client.instantiate(codeId, {}, 'My Mask');
 const mask = maskResp.contractAddress;
 
 // You can also find the contractAddress later (in a future session), like:
 const contracts = await client.getContracts(codeId);
 const mask = contracts
-  .filter((x) => x.label == "My Mask")
+  .filter((x) => x.label == 'My Mask')
   .map((x) => x.address)[0];
 ```
 
@@ -76,17 +76,17 @@ Now, let's use the mask. To do so, we need to load it up with some tokens (both
 native and ERC20 - from the contract you deployed last time).
 
 ```ts
-client.sendTokens(mask, [{ amount: "500000", denom: "ucosm" }]);
+client.sendTokens(mask, [{ amount: '500000', denom: 'ucosm' }]);
 client.getAccount(mask);
 
 // get the foo contract again...
 const ercId = 1; // from earlier example, change this if different on your network
 const ercs = await client.getContracts(ercId);
-const foo = ercs.filter((x) => x.label == "FOO").map((x) => x.address)[0];
+const foo = ercs.filter((x) => x.label == 'FOO').map((x) => x.address)[0];
 
 // send some erc tokens to the mask as before
 client.queryContractSmart(foo, { balance: { address: mask } });
-const ercMsg = { transfer: { recipient: mask, amount: "800000" } };
+const ercMsg = { transfer: { recipient: mask, amount: '800000' } };
 client.execute(foo, ercMsg);
 client.queryContractSmart(foo, { balance: { address: mask } });
 ```
@@ -98,13 +98,13 @@ client.queryContractSmart(foo, { balance: { address: mask } });
 Now, let's send some tokens from it:
 
 ```ts
-const rand = await randomAddress("cosmos");
+const rand = await randomAddress('cosmos');
 client.getAccount(rand);
 client.getAccount(mask);
 
 const callSend: HandleMsg = {
   reflectmsg: {
-    msgs: [sendMsg(mask, rand, [{ amount: "80000", denom: "ucosm" }])],
+    msgs: [sendMsg(mask, rand, [{ amount: '80000', denom: 'ucosm' }])],
   },
 };
 client.execute(mask, callSend);
@@ -123,7 +123,7 @@ client.queryContractSmart(foo, { balance: { address: mask } });
 const callContract: HandleMsg = {
   reflectmsg: {
     msgs: [
-      contractMsg(foo, { transfer: { amount: "80000", recipient: rand } }),
+      contractMsg(foo, { transfer: { amount: '80000', recipient: rand } }),
     ],
   },
 };
@@ -228,7 +228,7 @@ staking position in one fell swoop, without the other modules/contracts being
 aware of the change.
 
 ```ts
-const aliceMnem = loadOrCreateMnemonic("other.key");
+const aliceMnem = loadOrCreateMnemonic('other.key');
 const { address: alice, client: aliceClient } = await connect(aliceMnem, {});
 alice;
 
@@ -236,7 +236,7 @@ client.getAccount();
 aliceClient.getAccount();
 
 // send some minimal tokens
-client.sendTokens(alice, [{ amount: "500000", denom: "ucosm" }]);
+client.sendTokens(alice, [{ amount: '500000', denom: 'ucosm' }]);
 aliceClient.getAccount();
 
 // now, transfer ownership of the mask
@@ -256,7 +256,7 @@ client.queryContractSmart(foo, { balance: { address: alice } });
 const withdraw: HandleMsg = {
   reflectmsg: {
     msgs: [
-      contractMsg(foo, { transfer: { amount: "80000", recipient: alice } }),
+      contractMsg(foo, { transfer: { amount: '80000', recipient: alice } }),
     ],
   },
 };

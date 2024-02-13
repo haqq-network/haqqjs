@@ -344,8 +344,8 @@ export class SigningStargateClient extends StargateClient {
       addressToHex(senderAddress),
       txData,
     );
-    const gasLimit = bufferToBigInt(toBuffer(txData.gasLimit));
-    const maxFeePerGas = bufferToBigInt(toBuffer(txData.maxFeePerGas));
+    const gasLimit = bufferToBigInt(toBuffer(txData.gasLimit as unknown as bigint));
+    const maxFeePerGas = bufferToBigInt(toBuffer(txData.maxFeePerGas as unknown as bigint));
     const fee = calculateFee(Number(gasLimit), maxFeePerGas.toString() + feeDenom);
 
     return this.signAndBroadcast(hexToAddress(senderAddress, this.prefix), [msg], fee, memo);

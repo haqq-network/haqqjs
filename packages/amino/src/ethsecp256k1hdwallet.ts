@@ -2,19 +2,19 @@ import {
   Bip39,
   EnglishMnemonic,
   HdPath,
+  keccak256,
   pathToString,
   Random,
   Secp256k1,
   Secp256k1Keypair,
-  keccak256,
   Slip10,
   Slip10Curve,
   stringToPath,
 } from "@cosmjs/crypto";
-import { fromBase64, fromUtf8, toBase64, toUtf8, Bech32 } from "@cosmjs/encoding";
+import { fromBase64, fromUtf8, toBase64, toBech32, toUtf8 } from "@cosmjs/encoding";
 import { assert, isNonNullObject } from "@cosmjs/utils";
 
-import { rawEthSecp256k1PubkeyToRawAddress, ethAddressChecksumRaw } from "./addresses";
+import { ethAddressChecksumRaw, rawEthSecp256k1PubkeyToRawAddress } from "./addresses";
 import { makeEthPath } from "./paths";
 import { encodeEthSecp256k1Signature } from "./signature";
 import { serializeSignDoc, StdSignDoc } from "./signdoc";
@@ -93,7 +93,9 @@ function extractKdfConfigurationV1(doc: any): KdfConfiguration {
 
 export function extractKdfConfiguration(serialization: string): KdfConfiguration {
   const root = JSON.parse(serialization);
-  if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+  if (!isNonNullObject(root)) {
+    throw new Error("Root document is not an object.");
+  }
 
   switch ((root as any).type) {
     case serializationTypeV1:
@@ -128,7 +130,7 @@ interface EthSecp256k1HdWalletConstructorOptions extends Partial<EthSecp256k1HdW
 const defaultOptions: EthSecp256k1HdWalletOptions = {
   bip39Password: "",
   hdPaths: [makeEthPath(0)],
-  prefix: "aioz",
+  prefix: "haqq",
 };
 
 export class EthSecp256k1HdWallet implements OfflineAminoSigner {
@@ -174,7 +176,9 @@ export class EthSecp256k1HdWallet implements OfflineAminoSigner {
    */
   public static async deserialize(serialization: string, password: string): Promise<EthSecp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     switch ((root as any).type) {
       case serializationTypeV1:
         return EthSecp256k1HdWallet.deserializeTypeV1(serialization, password);
@@ -197,7 +201,9 @@ export class EthSecp256k1HdWallet implements OfflineAminoSigner {
     encryptionKey: Uint8Array,
   ): Promise<EthSecp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const untypedRoot: any = root;
     switch (untypedRoot.type) {
       case serializationTypeV1: {
@@ -209,7 +215,9 @@ export class EthSecp256k1HdWallet implements OfflineAminoSigner {
         const decryptedDocument = JSON.parse(fromUtf8(decryptedBytes));
         const { mnemonic, accounts } = decryptedDocument;
         assert(typeof mnemonic === "string");
-        if (!Array.isArray(accounts)) throw new Error("Property 'accounts' is not an array");
+        if (!Array.isArray(accounts)) {
+          throw new Error("Property 'accounts' is not an array");
+        }
         if (!accounts.every((account) => isDerivationJson(account))) {
           throw new Error("Account is not in the correct format.");
         }
@@ -233,7 +241,9 @@ export class EthSecp256k1HdWallet implements OfflineAminoSigner {
     password: string,
   ): Promise<EthSecp256k1HdWallet> {
     const root = JSON.parse(serialization);
-    if (!isNonNullObject(root)) throw new Error("Root document is not an object.");
+    if (!isNonNullObject(root)) {
+      throw new Error("Root document is not an object.");
+    }
     const encryptionKey = await executeKdf(password, (root as any).kdf);
     return EthSecp256k1HdWallet.deserializeWithEncryptionKey(serialization, encryptionKey);
   }
@@ -266,7 +276,7 @@ export class EthSecp256k1HdWallet implements OfflineAminoSigner {
       algo: algo,
       pubkey: pubkey,
       address: address,
-      addressHex: addressHex
+      addressHex: addressHex,
     }));
   }
 
@@ -347,14 +357,14 @@ export class EthSecp256k1HdWallet implements OfflineAminoSigner {
     return Promise.all(
       this.accounts.map(async ({ hdPath, prefix }) => {
         const { privkey, pubkey } = await this.getKeyPair(hdPath);
-        const address = Bech32.encode(prefix, rawEthSecp256k1PubkeyToRawAddress(pubkey));
+        const address = toBech32(prefix, rawEthSecp256k1PubkeyToRawAddress(pubkey));
         const addressHex = ethAddressChecksumRaw(rawEthSecp256k1PubkeyToRawAddress(pubkey));
         return {
           algo: "eth_secp256k1" as const,
           privkey: privkey,
           pubkey: pubkey,
           address: address,
-          addressHex: addressHex
+          addressHex: addressHex,
         };
       }),
     );

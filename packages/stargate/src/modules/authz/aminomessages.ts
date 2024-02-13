@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { AminoConverters } from "../../aminotypes";
 
 export function createAuthzAminoConverters(): AminoConverters {

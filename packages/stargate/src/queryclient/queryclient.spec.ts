@@ -1,9 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { coin } from "@cosmjs/amino";
-import { toAscii } from "@cosmjs/encoding";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert } from "@cosmjs/utils";
 import { Metadata } from "cosmjs-types/cosmos/bank/v1beta1/bank";
 import {
   QueryAllBalancesRequest,
@@ -11,6 +7,10 @@ import {
   QueryBalanceRequest,
   QueryBalanceResponse,
 } from "cosmjs-types/cosmos/bank/v1beta1/query";
+import { toAscii } from "@cosmjs/encoding";
+import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
+import { assert } from "@cosmjs/utils";
 
 import { SigningStargateClient } from "../signingstargateclient";
 import {
@@ -143,7 +143,10 @@ describe("QueryClient", () => {
 
       // Query with no height
       {
-        const requestData = QueryBalanceRequest.encode({ address: joe, denom: simapp.denomFee }).finish();
+        const requestData = QueryBalanceRequest.encode({
+          address: joe,
+          denom: simapp.denomFee,
+        }).finish();
         const data = await queryClient.queryUnverified(`/cosmos.bank.v1beta1.Query/Balance`, requestData);
         const response = QueryBalanceResponse.decode(data);
         expect(response.balance).toEqual(amount);
@@ -151,7 +154,10 @@ describe("QueryClient", () => {
 
       // Query at h2 (after send)
       {
-        const requestData = QueryBalanceRequest.encode({ address: joe, denom: simapp.denomFee }).finish();
+        const requestData = QueryBalanceRequest.encode({
+          address: joe,
+          denom: simapp.denomFee,
+        }).finish();
         const data = await queryClient.queryUnverified(`/cosmos.bank.v1beta1.Query/Balance`, requestData, h2);
         const response = QueryBalanceResponse.decode(data);
         expect(response.balance).toEqual(amount);
@@ -159,10 +165,16 @@ describe("QueryClient", () => {
 
       // Query at h1 (before send)
       {
-        const requestData = QueryBalanceRequest.encode({ address: joe, denom: simapp.denomFee }).finish();
+        const requestData = QueryBalanceRequest.encode({
+          address: joe,
+          denom: simapp.denomFee,
+        }).finish();
         const data = await queryClient.queryUnverified(`/cosmos.bank.v1beta1.Query/Balance`, requestData, h1);
         const response = QueryBalanceResponse.decode(data);
-        expect(response.balance).toEqual({ amount: "0", denom: simapp.denomFee });
+        expect(response.balance).toEqual({
+          amount: "0",
+          denom: simapp.denomFee,
+        });
       }
 
       tmClient.disconnect();
@@ -220,7 +232,10 @@ describe("QueryClient", () => {
 
       // Query with no height
       {
-        const requestData = QueryBalanceRequest.encode({ address: joe, denom: simapp.denomFee }).finish();
+        const requestData = QueryBalanceRequest.encode({
+          address: joe,
+          denom: simapp.denomFee,
+        }).finish();
         const { value, height } = await queryClient.queryAbci(
           `/cosmos.bank.v1beta1.Query/Balance`,
           requestData,
@@ -232,7 +247,10 @@ describe("QueryClient", () => {
 
       // Query at h2 (after send)
       {
-        const requestData = QueryBalanceRequest.encode({ address: joe, denom: simapp.denomFee }).finish();
+        const requestData = QueryBalanceRequest.encode({
+          address: joe,
+          denom: simapp.denomFee,
+        }).finish();
         const { value, height } = await queryClient.queryAbci(
           `/cosmos.bank.v1beta1.Query/Balance`,
           requestData,
@@ -245,14 +263,20 @@ describe("QueryClient", () => {
 
       // Query at h1 (before send)
       {
-        const requestData = QueryBalanceRequest.encode({ address: joe, denom: simapp.denomFee }).finish();
+        const requestData = QueryBalanceRequest.encode({
+          address: joe,
+          denom: simapp.denomFee,
+        }).finish();
         const { value, height } = await queryClient.queryAbci(
           `/cosmos.bank.v1beta1.Query/Balance`,
           requestData,
           h1,
         );
         const response = QueryBalanceResponse.decode(value);
-        expect(response.balance).toEqual({ amount: "0", denom: simapp.denomFee });
+        expect(response.balance).toEqual({
+          amount: "0",
+          denom: simapp.denomFee,
+        });
         expect(height).toEqual(h1);
       }
 

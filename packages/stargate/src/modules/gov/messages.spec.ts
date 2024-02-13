@@ -1,8 +1,8 @@
 import { coin, coins, makeCosmoshubPath, Secp256k1HdWallet } from "@cosmjs/amino";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { assert, sleep } from "@cosmjs/utils";
 import { TextProposal, VoteOption } from "cosmjs-types/cosmos/gov/v1beta1/gov";
 import { Any } from "cosmjs-types/google/protobuf/any";
+import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { assert, sleep } from "@cosmjs/utils";
 
 import { longify } from "../../queryclient";
 import { SigningStargateClient } from "../../signingstargateclient";
@@ -43,8 +43,12 @@ describe("gov messages", () => {
 
   beforeAll(async () => {
     if (simappEnabled()) {
-      voterWallet = await DirectSecp256k1HdWallet.fromMnemonic(faucet.mnemonic, { hdPaths: voterPaths });
-      voterWalletAmino = await Secp256k1HdWallet.fromMnemonic(faucet.mnemonic, { hdPaths: voterPaths });
+      voterWallet = await DirectSecp256k1HdWallet.fromMnemonic(faucet.mnemonic, {
+        hdPaths: voterPaths,
+      });
+      voterWalletAmino = await Secp256k1HdWallet.fromMnemonic(faucet.mnemonic, {
+        hdPaths: voterPaths,
+      });
       const client = await SigningStargateClient.connectWithSigner(
         simapp.tendermintUrl,
         voterWallet,

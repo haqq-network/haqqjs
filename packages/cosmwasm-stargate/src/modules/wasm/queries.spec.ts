@@ -407,12 +407,17 @@ describe("WasmExtension", () => {
 
       // execute
       {
-        const result = await executeContract(wallet, contractAddress, { release: {} });
+        const result = await executeContract(wallet, contractAddress, {
+          release: {},
+        });
         assertIsDeliverTxSuccess(result);
         const parsedLogs = logs.parseLogs(logs.parseRawLog(result.rawLog));
         const wasmEvent = parsedLogs.find(() => true)?.events.find((e) => e.type === "wasm");
         assert(wasmEvent, "Event of type wasm expected");
-        expect(wasmEvent.attributes).toContain({ key: "action", value: "release" });
+        expect(wasmEvent.attributes).toContain({
+          key: "action",
+          value: "release",
+        });
         expect(wasmEvent.attributes).toContain({
           key: "destination",
           value: beneficiaryAddress,

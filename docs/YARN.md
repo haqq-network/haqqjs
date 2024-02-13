@@ -86,7 +86,7 @@ want to specify the traditional `node_modules` installation strategy and Node’
 own module resolution strategy, because that’s what Yarn v1 uses:
 
 ```yml
-nodeLinker: "node-modules"
+nodeLinker: 'node-modules'
 ```
 
 ## Step 5: Add any other basic configuration you need

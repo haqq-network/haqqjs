@@ -26,12 +26,17 @@ export function setupBankExtension(base: QueryClient): BankExtension {
   return {
     bank: {
       balance: async (address: string, denom: string) => {
-        const { balance } = await queryService.Balance({ address: address, denom: denom });
+        const { balance } = await queryService.Balance({
+          address: address,
+          denom: denom,
+        });
         assert(balance);
         return balance;
       },
       allBalances: async (address: string) => {
-        const { balances } = await queryService.AllBalances({ address: address });
+        const { balances } = await queryService.AllBalances({
+          address: address,
+        });
         return balances;
       },
       totalSupply: async (paginationKey?: Uint8Array) => {

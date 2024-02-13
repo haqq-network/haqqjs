@@ -505,7 +505,7 @@ export function setupIbcExtension(base: QueryClient): IbcExtension {
           };
         },
         params: async () => transferQueryService.Params({}),
-        denomHash: async (trace: string) => transferQueryService.DenomHash({trace: trace}),
+        denomHash: async (trace: string) => transferQueryService.DenomHash({ trace: trace }),
       },
       verified: {
         channel: {

@@ -17,8 +17,10 @@ export class Decimal {
 
     const badCharacter = input.match(/[^0-9.]/);
     if (badCharacter) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      throw new Error(`Invalid character at position ${badCharacter.index! + 1}`);
+      throw new Error(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        `Invalid character at position ${badCharacter.index! + 1}`,
+      );
     }
 
     let whole: string;
@@ -84,15 +86,21 @@ export class Decimal {
   }
 
   private static verifyFractionalDigits(fractionalDigits: number): void {
-    if (!Number.isInteger(fractionalDigits)) throw new Error("Fractional digits is not an integer");
-    if (fractionalDigits < 0) throw new Error("Fractional digits must not be negative");
+    if (!Number.isInteger(fractionalDigits)) {
+      throw new Error("Fractional digits is not an integer");
+    }
+    if (fractionalDigits < 0) {
+      throw new Error("Fractional digits must not be negative");
+    }
     if (fractionalDigits > maxFractionalDigits) {
       throw new Error(`Fractional digits must not exceed ${maxFractionalDigits}`);
     }
   }
 
   public static compare(a: Decimal, b: Decimal): number {
-    if (a.fractionalDigits !== b.fractionalDigits) throw new Error("Fractional digits do not match");
+    if (a.fractionalDigits !== b.fractionalDigits) {
+      throw new Error("Fractional digits do not match");
+    }
     return a.data.atomics.cmp(new BN(b.atomics));
   }
 
@@ -183,7 +191,9 @@ export class Decimal {
    * Both values need to have the same fractional digits.
    */
   public plus(b: Decimal): Decimal {
-    if (this.fractionalDigits !== b.fractionalDigits) throw new Error("Fractional digits do not match");
+    if (this.fractionalDigits !== b.fractionalDigits) {
+      throw new Error("Fractional digits do not match");
+    }
     const sum = this.data.atomics.add(new BN(b.atomics));
     return new Decimal(sum.toString(), this.fractionalDigits);
   }
@@ -195,7 +205,9 @@ export class Decimal {
    * The resulting difference needs to be non-negative.
    */
   public minus(b: Decimal): Decimal {
-    if (this.fractionalDigits !== b.fractionalDigits) throw new Error("Fractional digits do not match");
+    if (this.fractionalDigits !== b.fractionalDigits) {
+      throw new Error("Fractional digits do not match");
+    }
     const difference = this.data.atomics.sub(new BN(b.atomics));
     if (difference.ltn(0)) throw new Error("Difference must not be negative");
     return new Decimal(difference.toString(), this.fractionalDigits);

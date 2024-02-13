@@ -386,7 +386,9 @@ export class CosmWasmClient {
     const { address: retrievedAddress, contractInfo } = await this.forceGetQueryClient().wasm.getContractInfo(
       address,
     );
-    if (!contractInfo) throw new Error(`No contract found at address "${address}"`);
+    if (!contractInfo) {
+      throw new Error(`No contract found at address "${address}"`);
+    }
     assert(retrievedAddress, "address missing");
     assert(contractInfo.codeId && contractInfo.creator && contractInfo.label, "contractInfo incomplete");
     return {
@@ -404,7 +406,9 @@ export class CosmWasmClient {
    */
   public async getContractCodeHistory(address: string): Promise<readonly ContractCodeHistoryEntry[]> {
     const result = await this.forceGetQueryClient().wasm.getContractCodeHistory(address);
-    if (!result) throw new Error(`No contract history found for address "${address}"`);
+    if (!result) {
+      throw new Error(`No contract history found for address "${address}"`);
+    }
     const operations: Record<number, "Init" | "Genesis" | "Migrate"> = {
       [ContractCodeHistoryOperationType.CONTRACT_CODE_HISTORY_OPERATION_TYPE_INIT]: "Init",
       [ContractCodeHistoryOperationType.CONTRACT_CODE_HISTORY_OPERATION_TYPE_GENESIS]: "Genesis",
