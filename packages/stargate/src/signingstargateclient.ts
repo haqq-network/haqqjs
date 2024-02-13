@@ -180,7 +180,7 @@ export class SigningStargateClient extends StargateClient {
   ) {
     super(tmClient, options);
     // TODO: do we really want to set a default here? Ideally we could get it from the signer such that users only have to set it once.
-    this.prefix = options.prefix ?? "aioz";
+    this.prefix = options.prefix ?? "haqq";
     const {
       registry = createDefaultRegistry(),
       aminoTypes = new AminoTypes(createDefaultTypes(this.prefix)),
@@ -417,6 +417,22 @@ export class SigningStargateClient extends StargateClient {
     memo: string,
     { accountNumber, sequence, chainId }: SignerData,
   ): Promise<TxRaw> {
+    // console.log(
+    //   "signAmino # 1",
+    //   JSON.stringify(
+    //     {
+    //       signerAddress,
+    //       messages,
+    //       fee,
+    //       memo,
+    //       accountNumber,
+    //       sequence,
+    //       chainId,
+    //     },
+    //     null,
+    //     2,
+    //   ),
+    // );
     assert(!isOfflineDirectSigner(this.signer) && !isOfflineEIP712Signer(this.signer));
     const accountFromSigner = (await this.signer.getAccounts()).find(
       (account) => account.address === signerAddress,
@@ -426,12 +442,15 @@ export class SigningStargateClient extends StargateClient {
     }
     const account = {
       ...accountFromSigner,
-      algo: this.pubkeyAlgo || accountFromSigner.algo,
+      // algo: this.pubkeyAlgo || accountFromSigner.algo,
+      algo: "ethsecp256k1",
     };
+    // console.log("signAmino # 2: account", JSON.stringify({ account }, null, 2));
     const pubkey =
-      account.algo == "eth_secp256k1"
+      account.algo == "ethsecp256k1"
         ? encodePubkey(encodeEthSecp256k1Pubkey(account.pubkey))
         : encodePubkey(encodeSecp256k1Pubkey(account.pubkey));
+    // console.log("signAmino # 3: pubkey", JSON.stringify({ account }, null, 2));
     const signMode = SignMode.SIGN_MODE_LEGACY_AMINO_JSON;
     const msgs = messages.map((msg) => this.aminoTypes.toAmino(msg));
     const signDoc = makeSignDocAmino(msgs, fee, chainId, memo, accountNumber, sequence);
@@ -455,6 +474,14 @@ export class SigningStargateClient extends StargateClient {
       signed.fee.payer,
       signMode,
     );
+    // console.log(
+    //   "signAmino # 4",
+    //   JSON.stringify(
+    //     { signedTxBodyBytes, signedGasLimit, signedSequence, signedAuthInfoBytes },
+    //     null,
+    //     2,
+    //   ),
+    // );
     return TxRaw.fromPartial({
       bodyBytes: signedTxBodyBytes,
       authInfoBytes: signedAuthInfoBytes,

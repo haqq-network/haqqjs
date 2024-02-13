@@ -458,12 +458,14 @@ export class StargateClient {
     timeoutMs = 60_000,
     pollIntervalMs = 3_000,
   ): Promise<DeliverTxResponse> {
+    // console.log("stargate broadcastTx # 1");
     let timedOut = false;
     const txPollTimeout = setTimeout(() => {
       timedOut = true;
     }, timeoutMs);
 
     const pollForTx = async (txId: string): Promise<DeliverTxResponse> => {
+      // console.log("pollForTx", { txId });
       if (timedOut) {
         throw new TimeoutError(
           `Transaction with ID ${txId} was submitted but was not yet found on the chain. You might want to check later. There was a wait of ${
@@ -488,12 +490,14 @@ export class StargateClient {
     };
 
     const broadcasted = await this.forceGetTmClient().broadcastTxSync({ tx });
+    // console.log("stargate broadcastTx # 2", { broadcasted });
     if (broadcasted.code) {
       return Promise.reject(
         new BroadcastTxError(broadcasted.code, broadcasted.codespace ?? "", broadcasted.log),
       );
     }
     const transactionId = toHex(broadcasted.hash).toUpperCase();
+    // console.log("stargate broadcastTx # 3", { transactionId });
     return new Promise((resolve, reject) =>
       pollForTx(transactionId).then(
         (value) => {
@@ -509,7 +513,10 @@ export class StargateClient {
   }
 
   private async txsQuery(query: string): Promise<readonly IndexedTx[]> {
+    // console.log("txsQuery # 1", { query });
+    // debugger;
     const results = await this.forceGetTmClient().txSearchAll({ query: query });
+    // console.log("txsQuery # 2", { query });
     return results.txs.map((tx) => {
       return {
         height: tx.height,

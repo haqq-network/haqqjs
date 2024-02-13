@@ -104,7 +104,7 @@ export function decodePubkey(pubkey?: Any | null): Pubkey | null {
     case "/cosmos.crypto.multisig.LegacyAminoPubKey": {
       const { threshold, publicKeys } = LegacyAminoPubKey.decode(pubkey.value);
       const out: MultisigThresholdPubkey = {
-        type: "tendermint/PubKeyMultisigThreshold",
+        type: "/cosmos.crypto.multisig.LegacyAminoPubKey",
         value: {
           threshold: threshold.toString(),
           pubkeys: publicKeys.map(anyToSinglePubkey),

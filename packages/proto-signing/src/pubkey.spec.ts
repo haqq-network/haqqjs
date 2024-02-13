@@ -5,7 +5,7 @@ import { fromBase64 } from "@cosmjs/encoding";
 import { decodePubkey, encodePubkey } from "./pubkey";
 
 describe("pubkey", () => {
-  const defaultPubkeyBase64 = "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP";
+  const defaultPubkeyBase64 = "AyJznzl87kTkjrAnc8LUietzlbrpdWNJ8WwSlKWhCDUb";
   const defaultPubkeyBytes = fromBase64(defaultPubkeyBase64);
   const defaultPubkeyProtoBytes = Uint8Array.from([0x0a, defaultPubkeyBytes.length, ...defaultPubkeyBytes]);
   const ed25519PubkeyBase64 = "kEX3edqZB+HdCV92TPS7ePX0DtP62GWIjmrveZ5pnaQ=";
@@ -14,7 +14,10 @@ describe("pubkey", () => {
 
   describe("encodePubkey", () => {
     it("works for secp256k1", () => {
-      const pubkey = { type: "tendermint/PubKeySecp256k1", value: defaultPubkeyBase64 };
+      const pubkey = {
+        type: "tendermint/PubKeySecp256k1",
+        value: defaultPubkeyBase64,
+      };
       expect(encodePubkey(pubkey)).toEqual(
         Any.fromPartial({
           typeUrl: "/cosmos.crypto.secp256k1.PubKey",
@@ -24,7 +27,10 @@ describe("pubkey", () => {
     });
 
     it("works for ed25519", () => {
-      const pubkey = { type: "tendermint/PubKeyEd25519", value: ed25519PubkeyBase64 };
+      const pubkey = {
+        type: "tendermint/PubKeyEd25519",
+        value: ed25519PubkeyBase64,
+      };
       expect(encodePubkey(pubkey)).toEqual(
         Any.fromPartial({
           typeUrl: "/cosmos.crypto.ed25519.PubKey",

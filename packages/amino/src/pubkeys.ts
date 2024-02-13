@@ -25,23 +25,26 @@ export function isSecp256k1Pubkey(pubkey: Pubkey): pubkey is Secp256k1Pubkey {
 }
 
 export interface EthSecp256k1Pubkey extends SinglePubkey {
-  readonly type: "ethermint/PubKeyEthSecp256k1";
+  // readonly type: "ethermint/PubKeyEthSecp256k1";
+  readonly type: "/ethermint.crypto.v1.ethsecp256k1.PubKey";
   readonly value: string;
 }
 
 export function isEthSecp256k1Pubkey(pubkey: Pubkey): pubkey is EthSecp256k1Pubkey {
-  return (pubkey as EthSecp256k1Pubkey).type === "ethermint/PubKeyEthSecp256k1";
+  // return (pubkey as EthSecp256k1Pubkey).type === "ethermint/PubKeyEthSecp256k1";
+  return (pubkey as EthSecp256k1Pubkey).type === "/ethermint.crypto.v1.ethsecp256k1.PubKey";
 }
 
 export const pubkeyType = {
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/ed25519/ed25519.go#L22 */
   secp256k1: "tendermint/PubKeySecp256k1" as const,
-  ethsecp256k1: "ethermint/PubKeyEthSecp256k1" as const,
+  // ethsecp256k1: "ethermint/PubKeyEthSecp256k1" as const,
+  ethsecp256k1: "/ethermint.crypto.v1.ethsecp256k1.PubKey" as const,
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/secp256k1/secp256k1.go#L23 */
   ed25519: "tendermint/PubKeyEd25519" as const,
   /** @see https://github.com/tendermint/tendermint/blob/v0.33.0/crypto/sr25519/codec.go#L12 */
   sr25519: "tendermint/PubKeySr25519" as const,
-  multisigThreshold: "tendermint/PubKeyMultisigThreshold" as const,
+  multisigThreshold: "/cosmos.crypto.multisig.LegacyAminoPubKey" as const,
 };
 
 /**
@@ -68,7 +71,7 @@ export function isSinglePubkey(pubkey: Pubkey): pubkey is SinglePubkey {
 }
 
 export interface MultisigThresholdPubkey extends Pubkey {
-  readonly type: "tendermint/PubKeyMultisigThreshold";
+  readonly type: "/cosmos.crypto.multisig.LegacyAminoPubKey";
   readonly value: {
     /** A string-encoded integer */
     readonly threshold: string;
@@ -77,5 +80,5 @@ export interface MultisigThresholdPubkey extends Pubkey {
 }
 
 export function isMultisigThresholdPubkey(pubkey: Pubkey): pubkey is MultisigThresholdPubkey {
-  return (pubkey as MultisigThresholdPubkey).type === "tendermint/PubKeyMultisigThreshold";
+  return (pubkey as MultisigThresholdPubkey).type === "/cosmos.crypto.multisig.LegacyAminoPubKey";
 }

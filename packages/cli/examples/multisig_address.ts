@@ -2,7 +2,7 @@ import { MultisigThresholdPubkey, pubkeyToAddress } from "@cosmjs/amino";
 
 // https://github.com/cosmos/cosmjs/issues/673#issuecomment-779847238
 const multisigPubkey: MultisigThresholdPubkey = {
-  type: "tendermint/PubKeyMultisigThreshold",
+  type: "/cosmos.crypto.multisig.LegacyAminoPubKey",
   value: {
     threshold: "3",
     pubkeys: [

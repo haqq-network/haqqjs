@@ -22,6 +22,7 @@ export function createMultisigThresholdPubkey(
   threshold: number,
   nosort = false,
 ): MultisigThresholdPubkey {
+  // console.log("createMultisigThresholdPubkey", JSON.stringify({ pubkeys, threshold }, null, 2));
   const uintThreshold = new Uint53(threshold);
   if (uintThreshold.toNumber() > pubkeys.length) {
     throw new Error(`Threshold k = ${uintThreshold.toNumber()} exceeds number of keys n = ${pubkeys.length}`);
@@ -33,10 +34,12 @@ export function createMultisigThresholdPubkey(
         // https://github.com/cosmos/cosmos-sdk/blob/v0.42.2/client/keys/add.go#L172-L174
         const addressLhs = pubkeyToRawAddress(lhs);
         const addressRhs = pubkeyToRawAddress(rhs);
+        // console.log("outPubkeys", JSON.stringify({ addressLhs, addressRhs }, null, 2));
         return compareArrays(addressLhs, addressRhs);
       });
+
   return {
-    type: "tendermint/PubKeyMultisigThreshold",
+    type: "/cosmos.crypto.multisig.LegacyAminoPubKey",
     value: {
       threshold: uintThreshold.toString(),
       pubkeys: outPubkeys,

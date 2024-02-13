@@ -80,7 +80,7 @@ export function decodeAminoPubkey(data: Uint8Array): Pubkey {
   } else if (arrayContentStartsWith(data, pubkeyAminoPrefixEthSecp256k1)) {
     const rest = data.slice(pubkeyAminoPrefixEthSecp256k1.length);
     if (rest.length !== 33) {
-      throw new Error("Invalid rest data length. Expected 33 bytes (compressed secp256k1 pubkey).");
+      throw new Error("Invalid rest data length. Expected 33 bytes (compressed eth_secp256k1 pubkey).");
     }
     return {
       type: pubkeyType.ethsecp256k1,
@@ -217,15 +217,25 @@ function encodeUvarint(value: number | string): number[] {
  */
 export function encodeAminoPubkey(pubkey: Pubkey): Uint8Array {
   if (isMultisigThresholdPubkey(pubkey)) {
+    const pubKeysData = pubkey.value.pubkeys.map((p) => {
+      return fromBase64(p.value);
+    });
+
+    // debugger;
     const out = Array.from(pubkeyAminoPrefixMultisigThreshold);
     out.push(0x08); // TODO: What is this?
     out.push(...encodeUvarint(pubkey.value.threshold));
-    for (const pubkeyData of pubkey.value.pubkeys.map((p) => encodeAminoPubkey(p))) {
+
+    for (const pubkeyData of pubKeysData) {
       out.push(0x12); // TODO: What is this?
+      out.push(0x22); // TODO: What is this? АХУЕТЬ!!!!
       out.push(...encodeUvarint(pubkeyData.length));
       out.push(...pubkeyData);
     }
-    return new Uint8Array(out);
+    const uintOut = new Uint8Array([...out]);
+
+    // console.log({ out, uintOut });
+    return uintOut;
   } else if (isEd25519Pubkey(pubkey)) {
     return new Uint8Array([...pubkeyAminoPrefixEd25519, ...fromBase64(pubkey.value)]);
   } else if (isSecp256k1Pubkey(pubkey)) {

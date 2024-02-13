@@ -13,6 +13,7 @@ import {
 } from "./pubkeys";
 
 export function rawEd25519PubkeyToRawAddress(pubkeyData: Uint8Array): Uint8Array {
+  // console.log("rawEd25519PubkeyToRawAddress", JSON.stringify({ pubkeyData }, null, 2));
   if (pubkeyData.length !== 32) {
     throw new Error(`Invalid Ed25519 pubkey length: ${pubkeyData.length}`);
   }
@@ -35,6 +36,7 @@ export function rawEthSecp256k1PubkeyToRawAddress(pubkeyData: Uint8Array): Uint8
 
 // For secp256k1 this assumes we already have a compressed pubkey.
 export function pubkeyToRawAddress(pubkey: Pubkey): Uint8Array {
+  // console.log("pubkeyToRawAddress", JSON.stringify({ pubkey }, null, 2));
   if (isSecp256k1Pubkey(pubkey)) {
     const pubkeyData = fromBase64(pubkey.value);
     return rawSecp256k1PubkeyToRawAddress(pubkeyData);

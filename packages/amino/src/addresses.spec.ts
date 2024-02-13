@@ -1,4 +1,4 @@
-import { Bech32, fromHex, toBase64 } from "@cosmjs/encoding";
+import { fromBech32, fromHex, toBase64 } from "@cosmjs/encoding";
 
 import { pubkeyToAddress, pubkeyToAddressHex, pubkeyToRawAddress } from "./addresses";
 import { decodeBech32Pubkey } from "./encoding";
@@ -12,17 +12,17 @@ describe("addresses", () => {
         value: "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP",
       };
       expect(pubkeyToRawAddress(pubkey)).toEqual(
-        Bech32.decode("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r").data,
+        fromBech32("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r").data,
       );
     });
 
     it("works for EthSecp256k1", () => {
       const pubkey = {
-        type: "ethermint/PubKeyEthSecp256k1",
-        value: "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP",
+        type: "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+        value: "AyJznzl87kTkjrAnc8LUietzlbrpdWNJ8WwSlKWhCDUb",
       };
       expect(pubkeyToRawAddress(pubkey)).toEqual(
-        Bech32.decode("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r").data,
+        fromBech32("haqq1f6u96xyamswltlssyyr56fjv5uca9ggylnueex").data,
       );
     });
 
@@ -32,7 +32,7 @@ describe("addresses", () => {
         value: toBase64(fromHex("12ee6f581fe55673a1e9e1382a0829e32075a0aa4763c968bc526e1852e78c95")),
       };
       expect(pubkeyToRawAddress(pubkey)).toEqual(
-        Bech32.decode("cosmos1pfq05em6sfkls66ut4m2257p7qwlk448h8mysz").data,
+        fromBech32("cosmos1pfq05em6sfkls66ut4m2257p7qwlk448h8mysz").data,
       );
     });
 
@@ -48,12 +48,13 @@ describe("addresses", () => {
       );
 
       const testgroup1: MultisigThresholdPubkey = {
-        type: "tendermint/PubKeyMultisigThreshold",
+        type: "/cosmos.crypto.multisig.LegacyAminoPubKey",
         value: {
           threshold: "2",
           pubkeys: [test1, test2, test3],
         },
       };
+      console.log(pubkeyToRawAddress(testgroup1));
       expect(pubkeyToRawAddress(testgroup1)).toEqual(fromHex("0892a77fab2fa7e192c3b7b2741e6682f3abb72f"));
     });
   });
@@ -62,17 +63,17 @@ describe("addresses", () => {
     it("works for Secp256k1", () => {
       const pubkey = {
         type: "tendermint/PubKeySecp256k1",
-        value: "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP",
+        value: "AyJznzl87kTkjrAnc8LUietzlbrpdWNJ8WwSlKWhCDUb",
       };
-      expect(pubkeyToAddressHex(pubkey)).toEqual("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r");
+      expect(pubkeyToAddressHex(pubkey)).toEqual("haqq1f6u96xyamswltlssyyr56fjv5uca9ggylnueex");
     });
 
     it("works for EthSecp256k1", () => {
       const pubkey = {
         type: "ethermint/PubKeyEthSecp256k1",
-        value: "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP",
+        value: "AyJznzl87kTkjrAnc8LUietzlbrpdWNJ8WwSlKWhCDUb",
       };
-      expect(pubkeyToAddressHex(pubkey)).toEqual("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r");
+      expect(pubkeyToAddressHex(pubkey)).toEqual("haqq1f6u96xyamswltlssyyr56fjv5uca9ggylnueex");
     });
 
     it("works for Ed25519", () => {
@@ -95,7 +96,7 @@ describe("addresses", () => {
       );
 
       const testgroup1: MultisigThresholdPubkey = {
-        type: "tendermint/PubKeyMultisigThreshold",
+        type: "/cosmos.crypto.multisig.LegacyAminoPubKey",
         value: {
           threshold: "2",
           pubkeys: [test1, test2, test3],
@@ -110,18 +111,18 @@ describe("addresses", () => {
       const prefix = "cosmos";
       const pubkey = {
         type: "tendermint/PubKeySecp256k1",
-        value: "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP",
+        value: "AyJznzl87kTkjrAnc8LUietzlbrpdWNJ8WwSlKWhCDUb",
       };
-      expect(pubkeyToAddress(pubkey, prefix)).toEqual("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r");
+      expect(pubkeyToAddress(pubkey, prefix)).toEqual("haqq1f6u96xyamswltlssyyr56fjv5uca9ggylnueex");
     });
 
     it("works for EthSecp256k1", () => {
       const prefix = "cosmos";
       const pubkey = {
         type: "ethermint/PubKeyEthSecp256k1",
-        value: "AtQaCqFnshaZQp6rIkvAPyzThvCvXSDO+9AzbxVErqJP",
+        value: "AyJznzl87kTkjrAnc8LUietzlbrpdWNJ8WwSlKWhCDUb",
       };
-      expect(pubkeyToAddress(pubkey, prefix)).toEqual("cosmos1h806c7khnvmjlywdrkdgk2vrayy2mmvf9rxk2r");
+      expect(pubkeyToAddress(pubkey, prefix)).toEqual("haqq1f6u96xyamswltlssyyr56fjv5uca9ggylnueex");
     });
 
     it("works for Ed25519", () => {
@@ -145,7 +146,7 @@ describe("addresses", () => {
       );
 
       const testgroup1: MultisigThresholdPubkey = {
-        type: "tendermint/PubKeyMultisigThreshold",
+        type: "/cosmos.crypto.multisig.LegacyAminoPubKey",
         value: {
           threshold: "2",
           pubkeys: [test1, test2, test3],
