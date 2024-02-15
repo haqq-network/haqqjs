@@ -34,13 +34,15 @@
     "/proofs.*",
     "*.md",
     "!wasmd-*/**/*.md",
-    "!cosmos-sdk-*/**/*.md"
+    "!cosmos-sdk-*/**/*.md",
+    "haqq/",
+    "amino/"
   ],
   "scripts": {
     "format": "prettier --write --loglevel warn '**/*.{ts,js,tsx,jsx,cjs,mjs}'",
-    "codegen": "rm -rf ./src && ./scripts/codegen.js && npm run format",
+    "codegen": "rm -rf ./src && ./scripts/codegen.js && yarn format",
     "prepare-publishing": "./scripts/prepare-publishing.sh",
-    "build": "rm -rf ./build && tsc && npm run prepare-publishing"
+    "build": "rm -rf ./build && yarn codegen && tsc && yarn prepare-publishing"
   },
   "dependencies": {
     "long": "^4.0.0",

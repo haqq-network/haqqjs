@@ -2787,7 +2787,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@haqqjs/types@workspace:packages/types"
   dependencies:
-    "@osmonauts/telescope": "npm:^0.88.2"
+    "@osmonauts/telescope": "npm:0.88.3"
     "@types/long": "npm:^4.0.1"
     "@types/node": "npm:^15.6.2"
     glob: "npm:10.3.10"
@@ -3203,7 +3203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@osmonauts/telescope@npm:^0.88.2":
+"@osmonauts/telescope@npm:0.88.3":
   version: 0.88.3
   resolution: "@osmonauts/telescope@npm:0.88.3"
   dependencies:
