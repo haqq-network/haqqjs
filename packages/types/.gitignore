@@ -16,11 +16,17 @@ node_modules/
 /ibc/
 /gravity/
 /tendermint/
-/helpers.*
-/index.*
 
 # IDEs
 .vscode/
 
 # macOS
 .DS_Store
+
+!third_party/proto
+/haqq/
+/amino/
+/helpers.*
+/index.*
+/proofs.*
+/src/
