@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/faucet-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The faucet client",
   "contributors": [
     "Will Clark <willclarktech@users.noreply.github.com>"

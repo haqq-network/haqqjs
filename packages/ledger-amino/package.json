@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/ledger-amino",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for signing Amino-encoded transactions using Ledger devices",
   "contributors": [
     "Will Clark <willclarktech@users.noreply.github.com>"

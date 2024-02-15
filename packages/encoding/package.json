@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/encoding",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Encoding helpers for blockchain projects",
   "contributors": [
     "IOV SAS <admin@iov.one>"

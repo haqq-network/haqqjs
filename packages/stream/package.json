@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/stream",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Utility functions for producing and consuming streams",
   "contributors": [
     "IOV SAS <admin@iov.one>",

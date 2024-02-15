@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JS and TS types relating to Protocol Buffers used by Cosmos SDK and other related projects",
   "contributors": [
     "Simon Warta <webmaster128@users.noreply.github.com>",

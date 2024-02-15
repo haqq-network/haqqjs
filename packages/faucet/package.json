@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/faucet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The faucet",
   "contributors": [
     "Ethan Frey <ethanfrey@users.noreply.github.com>",

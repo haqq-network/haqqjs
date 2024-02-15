@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/json-rpc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Framework for implementing a JSON-RPC 2.0 API",
   "contributors": [
     "IOV SAS <admin@iov.one>",
