@@ -1,7 +1,7 @@
-import { MsgDelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { coin, coins, DirectSecp256k1HdWallet, Registry } from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assertDefined, sleep } from "@cosmjs/utils";
+import { MsgDelegate } from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { coin, coins, DirectSecp256k1HdWallet, Registry } from "@haqqjs/proto-signing";
+import { Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { assertDefined, sleep } from "@haqqjs/utils";
 import Long from "long";
 
 import { QueryClient } from "../../queryclient";

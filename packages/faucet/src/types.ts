@@ -1,4 +1,4 @@
-import { Coin } from "@cosmjs/stargate";
+import { Coin } from "@haqqjs/stargate";
 
 export interface SendJob {
   readonly sender: string;

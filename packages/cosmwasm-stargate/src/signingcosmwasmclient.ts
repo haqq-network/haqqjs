@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { encodeSecp256k1Pubkey, makeSignDoc as makeSignDocAmino } from "@cosmjs/amino";
-import { sha256 } from "@cosmjs/crypto";
-import { fromBase64, toHex, toUtf8 } from "@cosmjs/encoding";
-import { Int53, Uint53 } from "@cosmjs/math";
+import { encodeSecp256k1Pubkey, makeSignDoc as makeSignDocAmino } from "@haqqjs/amino";
+import { sha256 } from "@haqqjs/crypto";
+import { fromBase64, toHex, toUtf8 } from "@haqqjs/encoding";
+import { Int53, Uint53 } from "@haqqjs/math";
 import {
   EncodeObject,
   encodePubkey,
@@ -12,7 +12,7 @@ import {
   OfflineSigner,
   Registry,
   TxBodyEncodeObject,
-} from "@cosmjs/proto-signing";
+} from "@haqqjs/proto-signing";
 import {
   AminoTypes,
   calculateFee,
@@ -30,13 +30,12 @@ import {
   MsgWithdrawDelegatorRewardEncodeObject,
   SignerData,
   StdFee,
-} from "@cosmjs/stargate";
-import { HttpEndpoint, Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert, assertDefined } from "@cosmjs/utils";
-import { MsgWithdrawDelegatorReward } from "cosmjs-types/cosmos/distribution/v1beta1/tx";
-import { MsgDelegate, MsgUndelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { SignMode } from "cosmjs-types/cosmos/tx/signing/v1beta1/signing";
-import { TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
+} from "@haqqjs/stargate";
+import { HttpEndpoint, Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { MsgWithdrawDelegatorReward } from "@haqqjs/types/cosmos/distribution/v1beta1/tx";
+import { MsgDelegate, MsgUndelegate } from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { SignMode } from "@haqqjs/types/cosmos/tx/signing/v1beta1/signing";
+import { TxRaw } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
 import {
   MsgClearAdmin,
   MsgExecuteContract,
@@ -44,7 +43,8 @@ import {
   MsgMigrateContract,
   MsgStoreCode,
   MsgUpdateAdmin,
-} from "cosmjs-types/cosmwasm/wasm/v1/tx";
+} from "@haqqjs/types/cosmwasm/wasm/v1/tx";
+import { assert, assertDefined } from "@haqqjs/utils";
 import Long from "long";
 import pako from "pako";
 

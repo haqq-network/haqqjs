@@ -1,6 +1,6 @@
-import { coins, makeCosmoshubPath } from "@cosmjs/amino";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { assertIsDeliverTxSuccess, calculateFee, GasPrice, SigningStargateClient } from "@cosmjs/stargate";
+import { coins, makeCosmoshubPath } from "@haqqjs/amino";
+import { DirectSecp256k1HdWallet } from "@haqqjs/proto-signing";
+import { assertIsDeliverTxSuccess, calculateFee, GasPrice, SigningStargateClient } from "@haqqjs/stargate";
 
 // Wallet
 const mnemonic =

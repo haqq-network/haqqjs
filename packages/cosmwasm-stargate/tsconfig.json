@@ -6,5 +6,6 @@
     "experimentalDecorators": true,
     "rootDir": "src"
   },
-  "include": ["src/**/*.ts", "src/**/*.js"]
+  "include": ["src/**/*.ts", "src/**/*.js"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.spec.js"]
 }

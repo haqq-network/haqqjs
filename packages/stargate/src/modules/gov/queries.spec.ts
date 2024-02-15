@@ -1,16 +1,16 @@
-import { coin, coins, makeCosmoshubPath } from "@cosmjs/amino";
+import { coin, coins, makeCosmoshubPath } from "@haqqjs/amino";
 import {
   ProposalStatus,
   TextProposal,
   Vote,
   VoteOption,
   WeightedVoteOption,
-} from "cosmjs-types/cosmos/gov/v1beta1/gov";
-import { Any } from "cosmjs-types/google/protobuf/any";
-import { toAscii } from "@cosmjs/encoding";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert, sleep } from "@cosmjs/utils";
+} from "@haqqjs/types/cosmos/gov/v1beta1/gov";
+import { Any } from "@haqqjs/types/google/protobuf/any";
+import { toAscii } from "@haqqjs/encoding";
+import { DirectSecp256k1HdWallet } from "@haqqjs/proto-signing";
+import { Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { assert, sleep } from "@haqqjs/utils";
 import Long from "long";
 
 import { longify, QueryClient } from "../../queryclient";

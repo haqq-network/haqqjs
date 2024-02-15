@@ -2,11 +2,11 @@ import {
   encodeEthSecp256k1Signature,
   ethAddressChecksumRaw,
   rawEthSecp256k1PubkeyToRawAddress,
-} from "@cosmjs/amino";
-import { keccak256, Secp256k1 } from "@cosmjs/crypto";
-import { fromBase64, fromHex, fromUtf8, toBase64, toBech32, toHex, toUtf8 } from "@cosmjs/encoding";
-import { assert, isNonNullObject } from "@cosmjs/utils";
-import { SignDoc } from "cosmjs-types/cosmos/tx/v1beta1/tx";
+} from "@haqqjs/amino";
+import { keccak256, Secp256k1 } from "@haqqjs/crypto";
+import { fromBase64, fromHex, fromUtf8, toBase64, toBech32, toHex, toUtf8 } from "@haqqjs/encoding";
+import { SignDoc } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
+import { assert, isNonNullObject } from "@haqqjs/utils";
 
 import { AccountData, AccountDataWithPrivkey, DirectSignResponse, OfflineDirectSigner } from "./signer";
 import { makeSignBytes } from "./signing";

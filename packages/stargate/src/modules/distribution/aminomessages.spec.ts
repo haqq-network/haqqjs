@@ -4,8 +4,8 @@ import {
   MsgSetWithdrawAddress,
   MsgWithdrawDelegatorReward,
   MsgWithdrawValidatorCommission,
-} from "cosmjs-types/cosmos/distribution/v1beta1/tx";
-import { coins } from "@cosmjs/proto-signing";
+} from "@haqqjs/types/cosmos/distribution/v1beta1/tx";
+import { coins } from "@haqqjs/proto-signing";
 
 import { AminoTypes } from "../../aminotypes";
 import {

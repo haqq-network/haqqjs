@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { BaseAccount } from "cosmjs-types/cosmos/auth/v1beta1/auth";
-import { Any } from "cosmjs-types/google/protobuf/any";
-import { encodePubkey } from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert } from "@cosmjs/utils";
+import { BaseAccount } from "@haqqjs/types/cosmos/auth/v1beta1/auth";
+import { Any } from "@haqqjs/types/google/protobuf/any";
+import { encodePubkey } from "@haqqjs/proto-signing";
+import { Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { assert } from "@haqqjs/utils";
 import Long from "long";
 
 import { QueryClient } from "../../queryclient";

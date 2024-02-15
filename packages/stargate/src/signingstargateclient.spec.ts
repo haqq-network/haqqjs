@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/naming-convention,no-bitwise */
-import { Secp256k1HdWallet } from "@cosmjs/amino";
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { BasicAllowance } from "cosmjs-types/cosmos/feegrant/v1beta1/feegrant";
-import { MsgGrantAllowance } from "cosmjs-types/cosmos/feegrant/v1beta1/tx";
-import { MsgDelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { AuthInfo, TxBody, TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { Any } from "cosmjs-types/google/protobuf/any";
+import { Secp256k1HdWallet } from "@haqqjs/amino";
+import { MsgSend } from "@haqqjs/types/cosmos/bank/v1beta1/tx";
+import { Coin } from "@haqqjs/types/cosmos/base/v1beta1/coin";
+import { BasicAllowance } from "@haqqjs/types/cosmos/feegrant/v1beta1/feegrant";
+import { MsgGrantAllowance } from "@haqqjs/types/cosmos/feegrant/v1beta1/tx";
+import { MsgDelegate } from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { AuthInfo, TxBody, TxRaw } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
+import { Any } from "@haqqjs/types/google/protobuf/any";
 import {
   coin,
   coins,
@@ -14,10 +14,10 @@ import {
   DirectSecp256k1HdWallet,
   makeCosmoshubPath,
   Registry,
-} from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert, sleep } from "@cosmjs/utils";
-import { DeepPartial } from "cosmjs-types";
+} from "@haqqjs/proto-signing";
+import { Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { assert, sleep } from "@haqqjs/utils";
+import { DeepPartial } from "@haqqjs/types";
 import Long from "long";
 import protobuf from "protobufjs/minimal";
 

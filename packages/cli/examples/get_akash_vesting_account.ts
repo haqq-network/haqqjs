@@ -1,6 +1,6 @@
-import { QueryClient, setupAuthExtension } from "@cosmjs/stargate";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { Any } from "cosmjs-types/google/protobuf/any";
+import { QueryClient, setupAuthExtension } from "@haqqjs/stargate";
+import { Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { Any } from "@haqqjs/typess/google/protobuf/any";
 
 // https://github.com/ovrclk/net/blob/24ddbb427/mainnet/rpc-nodes.txt
 const tmClient = await Tendermint34Client.connect("http://rpc.akash.forbole.com:80");

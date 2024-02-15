@@ -1,9 +1,9 @@
-import { EncodeObject, GeneratedType, Registry } from "@cosmjs/proto-signing";
 import { Common } from "@ethereumjs/common";
 import { FeeMarketEIP1559Transaction, FeeMarketEIP1559TxData } from "@ethereumjs/tx";
 import { bigIntToHex, bufferToBigInt, toBuffer } from "@ethereumjs/util";
-import { ExtensionOptionsWrappedEthereumTx, MsgWrappedEthereumTx } from "cosmjs-types/aioz/wetx/v1/tx";
-import { DynamicFeeTx, MsgEthereumTx } from "cosmjs-types/ethermint/evm/v1/tx";
+import { EncodeObject, GeneratedType, Registry } from "@haqqjs/proto-signing";
+import { ExtensionOptionsWrappedEthereumTx, MsgWrappedEthereumTx } from "@haqqjs/types/aioz/wetx/v1/tx";
+import { DynamicFeeTx, MsgEthereumTx } from "@haqqjs/types/ethermint/evm/v1/tx";
 import Long from "long";
 
 import { DynamicFeeTxEncodeObject } from "../ethermint/messages";

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { fromBase64, fromHex } from "@cosmjs/encoding";
+import { fromBase64, fromHex } from "@haqqjs/encoding";
 
 import { decodeEvent, decodeValidatorGenesis, decodeValidatorInfo, decodeValidatorUpdate } from "./responses";
 

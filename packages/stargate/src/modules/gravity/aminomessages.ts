@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { AminoMsg, Coin } from "@cosmjs/amino";
-import { MsgCancelSendToEvmChain, MsgSendToEvmChain } from "cosmjs-types/gravity/v1/msgs";
+import { AminoMsg, Coin } from "@haqqjs/amino";
+import { MsgCancelSendToEvmChain, MsgSendToEvmChain } from "@haqqjs/types/gravity/v1/msgs";
 
 // eslint-disable-next-line import/no-cycle
 import { AminoConverters } from "../../aminotypes";

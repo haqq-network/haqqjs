@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { addCoins } from "@cosmjs/amino";
-import { toHex } from "@cosmjs/encoding";
-import { Uint53 } from "@cosmjs/math";
-import { HttpEndpoint, Tendermint34Client, toRfc3339WithNanoseconds } from "@cosmjs/tendermint-rpc";
-import { assert, sleep } from "@cosmjs/utils";
-import { MsgData } from "cosmjs-types/cosmos/base/abci/v1beta1/abci";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { QueryDelegatorDelegationsResponse } from "cosmjs-types/cosmos/staking/v1beta1/query";
-import { DelegationResponse } from "cosmjs-types/cosmos/staking/v1beta1/staking";
+import { addCoins } from "@haqqjs/amino";
+import { toHex } from "@haqqjs/encoding";
+import { Uint53 } from "@haqqjs/math";
+import { HttpEndpoint, Tendermint34Client, toRfc3339WithNanoseconds } from "@haqqjs/tendermint-rpc";
+import { MsgData } from "@haqqjs/types/cosmos/base/abci/v1beta1/abci";
+import { Coin } from "@haqqjs/types/cosmos/base/v1beta1/coin";
+import { QueryDelegatorDelegationsResponse } from "@haqqjs/types/cosmos/staking/v1beta1/query";
+import { DelegationResponse } from "@haqqjs/types/cosmos/staking/v1beta1/staking";
+import { assert, sleep } from "@haqqjs/utils";
 
 import { Account, accountFromAny, AccountParser } from "./accounts";
 import { Event, fromTendermint34Event } from "./events";
@@ -92,13 +92,13 @@ export interface IndexedTx {
    * If you hash this, you get the transaction hash (= transaction ID):
    *
    * ```js
-   * import { sha256 } from "@cosmjs/crypto";
-   * import { toHex } from "@cosmjs/encoding";
+   * import { sha256 } from "@haqqjs/crypto";
+   * import { toHex } from "@haqqjs/encoding";
    *
    * const transactionId = toHex(sha256(indexTx.tx)).toUpperCase();
    * ```
    *
-   * Use `decodeTxRaw` from @cosmjs/proto-signing to decode this.
+   * Use `decodeTxRaw` from @haqqjs/proto-signing to decode this.
    */
   readonly tx: Uint8Array;
   readonly gasUsed: number;

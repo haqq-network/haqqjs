@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { MsgMultiSend, MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
-import { coins } from "@cosmjs/proto-signing";
+import { MsgMultiSend, MsgSend } from "@haqqjs/types/cosmos/bank/v1beta1/tx";
+import { coins } from "@haqqjs/proto-signing";
 
 import { AminoTypes } from "../../aminotypes";
 import { AminoMsgMultiSend, AminoMsgSend, createBankAminoConverters } from "./aminomessages";

@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/eip712",
+  "name": "@haqqjs/eip712",
   "version": "1.0.0",
   "description": "Utilities for Cosmos Web3",
   "contributors": [
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos/cosmjs/tree/main/packages/eip712"
+    "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/eip712"
   },
   "publishConfig": {
     "access": "public",
@@ -39,16 +39,16 @@
   },
   "dependencies": {
     "@confio/ics23": "^0.6.3",
-    "@cosmjs/amino": "workspace:^",
-    "@cosmjs/encoding": "workspace:^",
-    "@cosmjs/math": "workspace:^",
-    "@cosmjs/proto-signing": "workspace:^",
-    "@cosmjs/stream": "workspace:^",
-    "@cosmjs/tendermint-rpc": "workspace:^",
-    "@cosmjs/utils": "workspace:^",
+    "@haqqjs/amino": "workspace:^",
+    "@haqqjs/encoding": "workspace:^",
+    "@haqqjs/math": "workspace:^",
+    "@haqqjs/proto-signing": "workspace:^",
+    "@haqqjs/stream": "workspace:^",
+    "@haqqjs/tendermint-rpc": "workspace:^",
+    "@haqqjs/types": "workspace:^",
+    "@haqqjs/utils": "workspace:^",
     "@metamask/eth-sig-util": "^4.0.0",
     "@types/ethereumjs-abi": "^0.6.3",
-    "cosmjs-types": "workspace:^",
     "ethereumjs-abi": "^0.6.3",
     "ethereumjs-util": "^7.1.4",
     "long": "^4.0.0",
@@ -59,7 +59,7 @@
     "xstream": "^11.14.0"
   },
   "devDependencies": {
-    "@cosmjs/crypto": "workspace:^",
+    "@haqqjs/crypto": "workspace:^",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/eslint-plugin-prettier": "^3",
     "@types/jasmine": "^3.8",
@@ -70,14 +70,14 @@
     "@types/node": "^18.14.4",
     "@typescript-eslint/eslint-plugin": "^4.28",
     "@typescript-eslint/parser": "^4.28",
-    "eslint": "^7.5",
+    "eslint": "7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "esm": "^3.2.25",
-    "glob": "^7.1.6",
+    "glob": "10.3.10",
     "jasmine": "^3.8",
     "jasmine-core": "^3.7.1",
     "jasmine-spec-reporter": "^6",

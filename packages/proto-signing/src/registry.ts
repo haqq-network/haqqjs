@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { TxBody } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { Any } from "cosmjs-types/google/protobuf/any";
+import { MsgSend } from "@haqqjs/types/cosmos/bank/v1beta1/tx";
+import { Coin } from "@haqqjs/types/cosmos/base/v1beta1/coin";
+import { TxBody } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
+import { Any } from "@haqqjs/types/google/protobuf/any";
 import Long from "long";
 import type protobuf from "protobufjs";
 
@@ -109,7 +109,7 @@ export class Registry {
    * If you need to work with the result type in TypeScript, you can use:
    *
    * ```
-   * import { assert } from "@cosmjs/utils";
+   * import { assert } from "@haqqjs/utils";
    *
    * const Coin = registry.lookupType("/cosmos.base.v1beta1.Coin");
    * assert(Coin); // Ensures not unset

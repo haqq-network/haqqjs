@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { assert } from "@cosmjs/utils";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { SignMode } from "cosmjs-types/cosmos/tx/signing/v1beta1/signing";
-import { AuthInfo, SignDoc, SignerInfo } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { Any } from "cosmjs-types/google/protobuf/any";
+import { Coin } from "@haqqjs/types/cosmos/base/v1beta1/coin";
+import { SignMode } from "@haqqjs/types/cosmos/tx/signing/v1beta1/signing";
+import { AuthInfo, SignDoc, SignerInfo } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
+import { Any } from "@haqqjs/types/google/protobuf/any";
+import { assert } from "@haqqjs/utils";
 import Long from "long";
 
 /**

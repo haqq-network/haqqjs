@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { QueryClientImpl, QueryParamsResponse } from "cosmjs-types/aioz/staking/v1beta1/query";
+import { QueryClientImpl, QueryParamsResponse } from "@haqqjs/types/aioz/staking/v1beta1/query";
 
 import { createProtobufRpcClient, QueryClient } from "../../queryclient";
 

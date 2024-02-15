@@ -6,21 +6,21 @@ function show(a) {
   document.body.appendChild(e);
 }
 
-import { DirectEthSecp256k1HdWallet, DirectEthSecp256k1Wallet, Registry } from "@cosmjs/proto-signing";
+import { DirectEthSecp256k1HdWallet, DirectEthSecp256k1Wallet, Registry } from "@haqqjs/proto-signing";
 import Web3 from "web3";
 import Contract from "web3-eth-contract";
-import { Web3Wallet } from "@cosmjs/eip712";
+import { Web3Wallet } from "@haqqjs/eip712";
 import {
   SigningStargateClient,
   StargateClient,
   parseChainIdRevision,
   calculateFee,
   defaultRegistryTypes,
-} from "@cosmjs/stargate";
-import { fromHex, toHex } from "@cosmjs/encoding";
-import { addressToHex, hexToAddress } from "@cosmjs/amino";
-import { MsgConvertCoin, MsgConvertAIOZRC20 } from "cosmjs-types/aioz/aiozrc20/v1/tx";
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
+} from "@haqqjs/stargate";
+import { fromHex, toHex } from "@haqqjs/encoding";
+import { addressToHex, hexToAddress } from "@haqqjs/amino";
+import { MsgConvertCoin, MsgConvertAIOZRC20 } from "@haqqjs/types/aioz/aiozrc20/v1/tx";
+import { MsgSend } from "@haqqjs/types/cosmos/bank/v1beta1/tx";
 import Long from "long";
 
 const converterABI = [

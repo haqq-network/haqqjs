@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { ethAddressChecksum, hexToAddress, StdSignDoc } from "@cosmjs/amino";
-import { Secp256k1 } from "@cosmjs/crypto";
-import { fromHex } from "@cosmjs/encoding";
+import { ethAddressChecksum, hexToAddress, StdSignDoc } from "@haqqjs/amino";
+import { Secp256k1 } from "@haqqjs/crypto";
+import { fromHex } from "@haqqjs/encoding";
 import Web3 from "web3";
 import { AbstractProvider } from "web3-core";
 

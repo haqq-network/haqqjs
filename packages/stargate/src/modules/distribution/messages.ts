@@ -1,10 +1,10 @@
-import { EncodeObject, GeneratedType } from "@cosmjs/proto-signing";
+import { EncodeObject, GeneratedType } from "@haqqjs/proto-signing";
 import {
   MsgFundCommunityPool,
   MsgSetWithdrawAddress,
   MsgWithdrawDelegatorReward,
   MsgWithdrawValidatorCommission,
-} from "cosmjs-types/cosmos/distribution/v1beta1/tx";
+} from "@haqqjs/types/cosmos/distribution/v1beta1/tx";
 
 export const distributionTypes: ReadonlyArray<[string, GeneratedType]> = [
   ["/cosmos.distribution.v1beta1.MsgFundCommunityPool", MsgFundCommunityPool],

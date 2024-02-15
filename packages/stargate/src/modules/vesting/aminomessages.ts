@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { AminoMsg, Coin } from "@cosmjs/amino";
-import { MsgCreateVestingAccount } from "cosmjs-types/cosmos/vesting/v1beta1/tx";
+import { AminoMsg, Coin } from "@haqqjs/amino";
+import { MsgCreateVestingAccount } from "@haqqjs/types/cosmos/vesting/v1beta1/tx";
 import Long from "long";
 
 import { AminoConverters } from "../../aminotypes";

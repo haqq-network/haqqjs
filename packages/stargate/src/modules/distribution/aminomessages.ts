@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { AminoMsg, Coin } from "@cosmjs/amino";
+import { AminoMsg, Coin } from "@haqqjs/amino";
 import {
   MsgFundCommunityPool,
   MsgSetWithdrawAddress,
   MsgWithdrawDelegatorReward,
   MsgWithdrawValidatorCommission,
-} from "cosmjs-types/cosmos/distribution/v1beta1/tx";
+} from "@haqqjs/types/cosmos/distribution/v1beta1/tx";
 
 import { AminoConverter } from "../../aminotypes";
 

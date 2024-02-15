@@ -1,4 +1,4 @@
-import { isNonNullObject } from "@cosmjs/utils";
+import { isNonNullObject } from "@haqqjs/utils";
 
 import { HttpError } from "./httperror";
 

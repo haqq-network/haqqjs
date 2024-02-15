@@ -50,7 +50,7 @@ export async function main(originalArgs: readonly string[]): Promise<void> {
 
   console.info(chalk.green("Initializing session for you. Have fun!"));
   const visiblePackages = (await installedPackages()).filter(
-    (name) => name.startsWith("@cosmjs/") || name === "axios",
+    (name) => name.startsWith("@haqqjs/") || name === "axios",
   );
   console.info(chalk.yellow("The following packages have been installed and can be imported:"));
   console.info(chalk.yellow(visiblePackages.join(", ")));
@@ -72,8 +72,8 @@ export async function main(originalArgs: readonly string[]): Promise<void> {
         toHex,
         toUtf8,
         Bech32,
-      } from "@cosmjs/encoding";
-      import { sha512, Bip39, Random } from "@cosmjs/crypto";
+      } from "@haqqjs/encoding";
+      import { sha512, Bip39, Random } from "@haqqjs/crypto";
       import {
         coins,
         encodeAminoPubkey,
@@ -85,9 +85,9 @@ export async function main(originalArgs: readonly string[]): Promise<void> {
         Secp256k1HdWallet,
         Secp256k1Wallet,
         StdFee,
-      } from "@cosmjs/amino";
-      import { Decimal } from "@cosmjs/math";
-      import { assert, arrayContentEquals, sleep } from "@cosmjs/utils";
+      } from "@haqqjs/amino";
+      import { Decimal } from "@haqqjs/math";
+      import { assert, arrayContentEquals, sleep } from "@haqqjs/utils";
 
       await sleep(123);
 

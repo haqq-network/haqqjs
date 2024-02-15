@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Secp256k1HdWallet } from "@cosmjs/amino";
-import { sha256 } from "@cosmjs/crypto";
-import { toHex, toUtf8 } from "@cosmjs/encoding";
-import { decodeTxRaw, DirectSecp256k1HdWallet, Registry } from "@cosmjs/proto-signing";
+import { Secp256k1HdWallet } from "@haqqjs/amino";
+import { sha256 } from "@haqqjs/crypto";
+import { toHex, toUtf8 } from "@haqqjs/encoding";
+import { decodeTxRaw, DirectSecp256k1HdWallet, Registry } from "@haqqjs/proto-signing";
 import {
   AminoMsgDelegate,
   AminoTypes,
@@ -12,14 +12,14 @@ import {
   createSdkStakingAminoConverters,
   MsgDelegateEncodeObject,
   MsgSendEncodeObject,
-} from "@cosmjs/stargate";
-import { assert, sleep } from "@cosmjs/utils";
-import { DeepPartial } from "cosmjs-types";
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { MsgDelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { AuthInfo, TxBody, TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { MsgExecuteContract, MsgStoreCode } from "cosmjs-types/cosmwasm/wasm/v1/tx";
+} from "@haqqjs/stargate";
+import { assert, sleep } from "@haqqjs/utils";
+import { DeepPartial } from "@haqqjs/types";
+import { MsgSend } from "@haqqjs/types/cosmos/bank/v1beta1/tx";
+import { Coin } from "@haqqjs/types/cosmos/base/v1beta1/coin";
+import { MsgDelegate } from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { AuthInfo, TxBody, TxRaw } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
+import { MsgExecuteContract, MsgStoreCode } from "@haqqjs/types/cosmwasm/wasm/v1/tx";
 import Long from "long";
 import pako from "pako";
 import protobuf from "protobufjs/minimal";

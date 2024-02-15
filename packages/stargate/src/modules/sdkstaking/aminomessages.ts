@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { AminoMsg, Coin, Pubkey } from "@cosmjs/amino";
-import { Decimal } from "@cosmjs/math";
-import { anyToSinglePubkey, encodePubkey } from "@cosmjs/proto-signing";
-import { assertDefinedAndNotNull } from "@cosmjs/utils";
+import { AminoMsg, Coin, Pubkey } from "@haqqjs/amino";
+import { Decimal } from "@haqqjs/math";
+import { anyToSinglePubkey, encodePubkey } from "@haqqjs/proto-signing";
 import {
   MsgBeginRedelegate,
   MsgCreateValidator,
   MsgDelegate,
   MsgEditValidator,
   MsgUndelegate,
-} from "cosmjs-types/cosmos/staking/v1beta1/tx";
+} from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { assertDefinedAndNotNull } from "@haqqjs/utils";
 
 import { AminoConverter } from "../../aminotypes";
 

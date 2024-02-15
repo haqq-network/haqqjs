@@ -3,8 +3,8 @@ import {
   QueryParamsResponse,
   QuerySigningInfoResponse,
   QuerySigningInfosResponse,
-} from "cosmjs-types/cosmos/slashing/v1beta1/query";
-import { QueryClientImpl } from "cosmjs-types/cosmos/slashing/v1beta1/query";
+} from "@haqqjs/types/cosmos/slashing/v1beta1/query";
+import { QueryClientImpl } from "@haqqjs/types/cosmos/slashing/v1beta1/query";
 
 import { createPagination, createProtobufRpcClient, QueryClient } from "../../queryclient";
 

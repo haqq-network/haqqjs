@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { AminoMsg, Coin } from "@cosmjs/amino";
-import { Decimal } from "@cosmjs/math";
-import { assert, assertDefinedAndNotNull, isNonNullObject } from "@cosmjs/utils";
-import { TextProposal, voteOptionFromJSON } from "cosmjs-types/cosmos/gov/v1beta1/gov";
-import { MsgDeposit, MsgSubmitProposal, MsgVote, MsgVoteWeighted } from "cosmjs-types/cosmos/gov/v1beta1/tx";
-import { Any } from "cosmjs-types/google/protobuf/any";
+import { AminoMsg, Coin } from "@haqqjs/amino";
+import { Decimal } from "@haqqjs/math";
+import { TextProposal, voteOptionFromJSON } from "@haqqjs/types/cosmos/gov/v1beta1/gov";
+import { MsgDeposit, MsgSubmitProposal, MsgVote, MsgVoteWeighted } from "@haqqjs/types/cosmos/gov/v1beta1/tx";
+import { Any } from "@haqqjs/types/google/protobuf/any";
+import { assert, assertDefinedAndNotNull, isNonNullObject } from "@haqqjs/utils";
 import Long from "long";
 
 import { AminoConverters } from "../../aminotypes";

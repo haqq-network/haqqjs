@@ -1,3 +1,5 @@
+import { FeeMarketEIP1559TxData } from "@ethereumjs/tx";
+import { bufferToBigInt, toBuffer } from "@ethereumjs/util";
 import {
   addressToHex,
   encodeEthSecp256k1Pubkey,
@@ -5,10 +7,10 @@ import {
   hexToAddress,
   makeSignDoc as makeSignDocAmino,
   StdFee,
-} from "@cosmjs/amino";
-import { isOfflineDirectSigner, isOfflineEIP712Signer, OfflineSigner, parseChainId } from "@cosmjs/eip712";
-import { fromBase64 } from "@cosmjs/encoding";
-import { Int53, Uint53 } from "@cosmjs/math";
+} from "@haqqjs/amino";
+import { isOfflineDirectSigner, isOfflineEIP712Signer, OfflineSigner, parseChainId } from "@haqqjs/eip712";
+import { fromBase64 } from "@haqqjs/encoding";
+import { Int53, Uint53 } from "@haqqjs/math";
 import {
   DecodeObject,
   EncodeObject,
@@ -18,21 +20,19 @@ import {
   makeSignDoc,
   Registry,
   TxBodyEncodeObject,
-} from "@cosmjs/proto-signing";
-import { HttpEndpoint, Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert, assertDefined } from "@cosmjs/utils";
-import { FeeMarketEIP1559TxData } from "@ethereumjs/tx";
-import { bufferToBigInt, toBuffer } from "@ethereumjs/util";
-import { ExtensionOptionsWrappedEthereumTx } from "cosmjs-types/aioz/wetx/v1/tx";
-import { Coin } from "cosmjs-types/cosmos/base/v1beta1/coin";
-import { MsgWithdrawDelegatorReward } from "cosmjs-types/cosmos/distribution/v1beta1/tx";
-import { MsgDelegate, MsgUndelegate } from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { SignMode } from "cosmjs-types/cosmos/tx/signing/v1beta1/signing";
-import { TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { ExtensionOptionsWeb3Tx } from "cosmjs-types/ethermint/types/v1/web3";
-import { Any } from "cosmjs-types/google/protobuf/any";
-import { MsgTransfer } from "cosmjs-types/ibc/applications/transfer/v1/tx";
-import { Height } from "cosmjs-types/ibc/core/client/v1/client";
+} from "@haqqjs/proto-signing";
+import { HttpEndpoint, Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { ExtensionOptionsWrappedEthereumTx } from "@haqqjs/types/aioz/wetx/v1/tx";
+import { Coin } from "@haqqjs/types/cosmos/base/v1beta1/coin";
+import { MsgWithdrawDelegatorReward } from "@haqqjs/types/cosmos/distribution/v1beta1/tx";
+import { MsgDelegate, MsgUndelegate } from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { SignMode } from "@haqqjs/types/cosmos/tx/signing/v1beta1/signing";
+import { TxRaw } from "@haqqjs/types/cosmos/tx/v1beta1/tx";
+import { ExtensionOptionsWeb3Tx } from "@haqqjs/types/ethermint/types/v1/web3";
+import { Any } from "@haqqjs/types/google/protobuf/any";
+import { MsgTransfer } from "@haqqjs/types/ibc/applications/transfer/v1/tx";
+import { Height } from "@haqqjs/types/ibc/core/client/v1/client";
+import { assert, assertDefined } from "@haqqjs/utils";
 import Long from "long";
 
 import { AminoConverters, AminoTypes } from "./aminotypes";

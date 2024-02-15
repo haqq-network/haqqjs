@@ -1,6 +1,6 @@
-import { Secp256k1, Sha256 } from "@cosmjs/crypto";
-import { Bech32, fromBase64, fromHex, fromUtf8, toBase64, toHex, toUtf8 } from "@cosmjs/encoding";
-import { assert, isNonNullObject } from "@cosmjs/utils";
+import { Secp256k1, Sha256 } from "@haqqjs/crypto";
+import { Bech32, fromBase64, fromHex, fromUtf8, toBase64, toHex, toUtf8 } from "@haqqjs/encoding";
+import { assert, isNonNullObject } from "@haqqjs/utils";
 
 import { ethAddressChecksumRaw, rawSecp256k1PubkeyToRawAddress } from "./addresses";
 import { encodeSecp256k1Signature } from "./signature";

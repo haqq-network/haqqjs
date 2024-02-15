@@ -1,10 +1,10 @@
 /* eslint-disable no-dupe-class-members, @typescript-eslint/ban-types, @typescript-eslint/naming-convention */
 import { iavlSpec, ics23, tendermintSpec, verifyExistence, verifyNonExistence } from "@confio/ics23";
-import { toAscii, toHex } from "@cosmjs/encoding";
-import { firstEvent } from "@cosmjs/stream";
-import { tendermint34, Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { arrayContentEquals, assert, assertDefined, isNonNullObject, sleep } from "@cosmjs/utils";
-import { ProofOps } from "cosmjs-types/tendermint/crypto/proof";
+import { toAscii, toHex } from "@haqqjs/encoding";
+import { firstEvent } from "@haqqjs/stream";
+import { tendermint34, Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { ProofOps } from "@haqqjs/types/tendermint/crypto/proof";
+import { arrayContentEquals, assert, assertDefined, isNonNullObject, sleep } from "@haqqjs/utils";
 import { Stream } from "xstream";
 
 type QueryExtensionSetup<P> = (base: QueryClient) => P;

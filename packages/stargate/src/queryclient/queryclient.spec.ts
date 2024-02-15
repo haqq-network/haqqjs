@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { coin } from "@cosmjs/amino";
-import { Metadata } from "cosmjs-types/cosmos/bank/v1beta1/bank";
+import { coin } from "@haqqjs/amino";
+import { Metadata } from "@haqqjs/types/cosmos/bank/v1beta1/bank";
 import {
   QueryAllBalancesRequest,
   QueryAllBalancesResponse,
   QueryBalanceRequest,
   QueryBalanceResponse,
-} from "cosmjs-types/cosmos/bank/v1beta1/query";
-import { toAscii } from "@cosmjs/encoding";
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
-import { assert } from "@cosmjs/utils";
+} from "@haqqjs/types/cosmos/bank/v1beta1/query";
+import { toAscii } from "@haqqjs/encoding";
+import { DirectSecp256k1HdWallet } from "@haqqjs/proto-signing";
+import { Tendermint34Client } from "@haqqjs/tendermint-rpc";
+import { assert } from "@haqqjs/utils";
 
 import { SigningStargateClient } from "../signingstargateclient";
 import {

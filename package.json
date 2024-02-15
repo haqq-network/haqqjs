@@ -1,11 +1,9 @@
 {
-  "name": "cosmjs-monorepo-root",
+  "name": "haqqjs-monorepo",
   "description": "Transaction codec and client to communicate with any wasmd blockchain",
   "private": true,
   "author": "Ethan Frey <ethanfrey@users.noreply.github.com>",
   "license": "Apache-2.0",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
   "files": [
     "build/",
     "*.md",
@@ -18,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos/cosmjs"
+    "url": "https://github.com/haqq-network/haqqjs"
   },
   "publishConfig": {
     "access": "public",
@@ -45,15 +43,15 @@
     "version-patch": "yarn workspaces foreach --all --no-private exec yarn version patch"
   },
   "devDependencies": {
-    "@cosmjs/amino": "workspace:^",
-    "@cosmjs/cosmwasm-stargate": "workspace:^",
-    "@cosmjs/crypto": "workspace:^",
-    "@cosmjs/encoding": "workspace:^",
-    "@cosmjs/proto-signing": "workspace:^",
-    "@cosmjs/stargate": "workspace:^",
-    "eslint": "^7.5",
-    "prettier": "^2.8.8",
-    "typescript": "~4.6"
+    "@haqqjs/amino": "workspace:^",
+    "@haqqjs/cosmwasm-stargate": "workspace:^",
+    "@haqqjs/crypto": "workspace:^",
+    "@haqqjs/encoding": "workspace:^",
+    "@haqqjs/proto-signing": "workspace:^",
+    "@haqqjs/stargate": "workspace:^",
+    "eslint": "7.32.0",
+    "prettier": "2.8.8",
+    "typescript": "4.9.5"
   },
   "packageManager": "yarn@4.1.0"
 }

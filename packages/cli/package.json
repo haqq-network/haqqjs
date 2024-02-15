@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/cli",
+  "name": "@haqqjs/cli",
   "version": "1.0.0",
   "description": "Command line interface",
   "contributors": [
@@ -9,7 +9,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos/cosmjs/tree/main/packages/cli"
+    "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/cli"
   },
   "publishConfig": {
     "access": "public",
@@ -23,14 +23,14 @@
     "lint-fix": "eslint --fix --max-warnings 0 \"./**/*.ts\"",
     "build": "rm -rf ./build && tsc",
     "build-or-skip": "[ -n \"$SKIP_BUILD\" ] || yarn build",
-    "start": "yarn build-or-skip && ./bin/cosmjs-cli",
-    "selftest": "yarn build-or-skip && ./bin/cosmjs-cli --selftest",
+    "start": "yarn build-or-skip && ./bin/haqqjs-cli",
+    "selftest": "yarn build-or-skip && ./bin/haqqjs-cli --selftest",
     "test-node": "yarn node jasmine-testrunner.js",
     "test": "yarn build-or-skip && yarn test-node",
     "coverage": "nyc --reporter=text --reporter=lcov yarn test --quiet"
   },
   "bin": {
-    "cosmjs-cli": "bin/cosmjs-cli"
+    "haqqjs-cli": "bin/haqqjs-cli"
   },
   "files": [
     "build/",
@@ -40,24 +40,24 @@
     "!**/testdata/"
   ],
   "dependencies": {
-    "@cosmjs/amino": "workspace:^",
-    "@cosmjs/cosmwasm-stargate": "workspace:^",
-    "@cosmjs/crypto": "workspace:^",
-    "@cosmjs/encoding": "workspace:^",
-    "@cosmjs/faucet-client": "workspace:^",
-    "@cosmjs/math": "workspace:^",
-    "@cosmjs/proto-signing": "workspace:^",
-    "@cosmjs/stargate": "workspace:^",
-    "@cosmjs/tendermint-rpc": "workspace:^",
-    "@cosmjs/utils": "workspace:^",
+    "@haqqjs/amino": "workspace:^",
+    "@haqqjs/cosmwasm-stargate": "workspace:^",
+    "@haqqjs/crypto": "workspace:^",
+    "@haqqjs/encoding": "workspace:^",
+    "@haqqjs/faucet-client": "workspace:^",
+    "@haqqjs/math": "workspace:^",
+    "@haqqjs/proto-signing": "workspace:^",
+    "@haqqjs/stargate": "workspace:^",
+    "@haqqjs/tendermint-rpc": "workspace:^",
+    "@haqqjs/types": "workspace:^",
+    "@haqqjs/utils": "workspace:^",
     "axios": "^0.21.2",
     "babylon": "^6.18.0",
     "chalk": "^4",
-    "cosmjs-types": "workspace:^",
     "diff": "^4",
     "recast": "^0.20",
     "ts-node": "^8",
-    "typescript": "~4.6",
+    "typescript": "4.9.5",
     "yargs": "^15.3.1"
   },
   "devDependencies": {
@@ -70,7 +70,7 @@
     "@types/yargs": "^15.0.4",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
-    "eslint": "^7.5",
+    "eslint": "7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.22.1",
@@ -80,7 +80,7 @@
     "jasmine": "^4",
     "jasmine-spec-reporter": "^6",
     "nyc": "^15.1.0",
-    "prettier": "^2.8.1",
+    "prettier": "2.8.8",
     "source-map-support": "^0.5.19"
   }
 }

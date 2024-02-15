@@ -5,7 +5,7 @@ import {
   QueryParamsResponse,
   QueryTokenPairResponse,
   QueryTokenPairsResponse,
-} from "cosmjs-types/aioz/aiozrc20/v1/query";
+} from "@haqqjs/types/aioz/aiozrc20/v1/query";
 
 import { createPagination, createProtobufRpcClient, QueryClient } from "../../queryclient";
 

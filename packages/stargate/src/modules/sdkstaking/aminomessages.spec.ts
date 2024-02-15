@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { PubKey as CosmosCryptoSecp256k1Pubkey } from "cosmjs-types/cosmos/crypto/secp256k1/keys";
+import { PubKey as CosmosCryptoSecp256k1Pubkey } from "@haqqjs/types/cosmos/crypto/secp256k1/keys";
 import {
   MsgBeginRedelegate,
   MsgCreateValidator,
   MsgDelegate,
   MsgEditValidator,
   MsgUndelegate,
-} from "cosmjs-types/cosmos/staking/v1beta1/tx";
-import { fromBase64 } from "@cosmjs/encoding";
-import { coin } from "@cosmjs/proto-signing";
+} from "@haqqjs/types/cosmos/staking/v1beta1/tx";
+import { fromBase64 } from "@haqqjs/encoding";
+import { coin } from "@haqqjs/proto-signing";
 
 import { AminoTypes } from "../../aminotypes";
 import {

@@ -1,7 +1,7 @@
 // See https://github.com/tendermint/tendermint/blob/f2ada0a604b4c0763bda2f64fac53d506d3beca7/docs/spec/blockchain/encoding.md#public-key-cryptography
 
-import { keccak256, ripemd160, Secp256k1, sha256 } from "@cosmjs/crypto";
-import { Bech32, fromBase64, fromHex, toHex, toUtf8 } from "@cosmjs/encoding";
+import { keccak256, ripemd160, Secp256k1, sha256 } from "@haqqjs/crypto";
+import { Bech32, fromBase64, fromHex, toHex, toUtf8 } from "@haqqjs/encoding";
 
 import { encodeAminoPubkey } from "./encoding";
 import {

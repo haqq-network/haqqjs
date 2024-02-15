@@ -1,5 +1,5 @@
 {
-  "name": "@cosmjs/socket",
+  "name": "@haqqjs/socket",
   "version": "1.0.0",
   "description": "Utility functions for working with WebSockets",
   "contributors": [
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmos/cosmjs/tree/main/packages/socket"
+    "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/socket"
   },
   "publishConfig": {
     "access": "public",
@@ -42,7 +42,7 @@
     "pack-web": "yarn build-or-skip && webpack --mode development --config webpack.web.config.js"
   },
   "dependencies": {
-    "@cosmjs/stream": "workspace:^",
+    "@haqqjs/stream": "workspace:^",
     "isomorphic-ws": "^4.0.1",
     "ws": "^7",
     "xstream": "^11.14.0"
@@ -57,14 +57,14 @@
     "@types/ws": "^6.0.1",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
-    "eslint": "^7.5",
+    "eslint": "7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "esm": "^3.2.25",
-    "glob": "^7.1.6",
+    "glob": "10.3.10",
     "jasmine": "^4",
     "jasmine-spec-reporter": "^6",
     "karma": "^6.3.14",
@@ -73,12 +73,12 @@
     "karma-jasmine": "^5",
     "karma-jasmine-html-reporter": "^1.5.4",
     "nyc": "^15.1.0",
-    "prettier": "^2.8.1",
+    "prettier": "2.8.8",
     "ses": "^0.11.0",
     "source-map-support": "^0.5.19",
     "ts-node": "^8",
     "typedoc": "^0.22",
-    "typescript": "~4.6",
+    "typescript": "4.9.5",
     "webpack": "^5.32.0",
     "webpack-cli": "^4.6.0"
   }

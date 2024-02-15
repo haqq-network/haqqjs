@@ -1,4 +1,4 @@
-import { Any } from "cosmjs-types/google/protobuf/any";
+import { Any } from "@haqqjs/types/google/protobuf/any";
 
 import { accountFromAny } from "./accounts";
 

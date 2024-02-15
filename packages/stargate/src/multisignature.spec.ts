@@ -4,10 +4,10 @@ import {
   makeCosmoshubPath,
   pubkeyToAddress,
   Secp256k1HdWallet,
-} from "@cosmjs/amino";
-import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
-import { coins } from "@cosmjs/proto-signing";
-import { assert } from "@cosmjs/utils";
+} from "@haqqjs/amino";
+import { MsgSend } from "@haqqjs/types/cosmos/bank/v1beta1/tx";
+import { coins } from "@haqqjs/proto-signing";
+import { assert } from "@haqqjs/utils";
 
 import { MsgSendEncodeObject } from "./modules";
 import { makeCompactBitArray, makeMultisignedTxBytes } from "./multisignature";
