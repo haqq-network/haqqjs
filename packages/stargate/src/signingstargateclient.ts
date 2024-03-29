@@ -72,6 +72,7 @@ import {
   createIbcAminoConverters,
   createSdkStakingAminoConverters,
   createVestingAminoConverters,
+  createLiquidVestingAminoConverters,
 } from "./modules";
 import { DeliverTxResponse, StargateClient, StargateClientOptions } from "./stargateclient";
 
@@ -134,6 +135,8 @@ function createDefaultTypes(prefix: string): AminoConverters {
     ...createVestingAminoConverters(),
     ...createAiozrc20AminoConverters(),
     ...createGravityAminoConverters(),
+    ...createGravityAminoConverters(),
+    ...createLiquidVestingAminoConverters(),
   };
 }
 

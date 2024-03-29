@@ -19,6 +19,7 @@ import {
   DistributionExtension,
   GravityExtension,
   IbcExtension,
+  LiquidVestingExtension,
   SdkStakingExtension,
   setupAiozrc20Extension,
   setupAuthExtension,
@@ -27,6 +28,7 @@ import {
   setupDistributionExtension,
   setupGravityExtension,
   setupIbcExtension,
+  setupLiquidVestingExtension,
   setupSdkStakingExtension,
   setupStakingExtension,
   setupTxExtension,
@@ -190,21 +192,22 @@ export interface StargateClientOptions {
   readonly accountParser?: AccountParser;
 }
 
+type QueryClientWithExtensions = QueryClient &
+  AuthExtension &
+  BankExtension &
+  SdkStakingExtension &
+  StakingExtension &
+  DistributionExtension &
+  Aiozrc20Extension &
+  IbcExtension &
+  Bech32ibcExtension &
+  GravityExtension &
+  TxExtension &
+  LiquidVestingExtension;
+
 export class StargateClient {
   private readonly tmClient: Tendermint34Client | undefined;
-  private readonly queryClient:
-    | (QueryClient &
-        AuthExtension &
-        BankExtension &
-        SdkStakingExtension &
-        StakingExtension &
-        DistributionExtension &
-        Aiozrc20Extension &
-        IbcExtension &
-        Bech32ibcExtension &
-        GravityExtension &
-        TxExtension)
-    | undefined;
+  private readonly queryClient: QueryClientWithExtensions | undefined;
   private chainId: string | undefined;
   private readonly accountParser: AccountParser;
 
@@ -231,6 +234,7 @@ export class StargateClient {
         setupBech32ibcExtension,
         setupGravityExtension,
         setupTxExtension,
+        setupLiquidVestingExtension,
       );
     }
     const { accountParser = accountFromAny } = options;
@@ -250,33 +254,11 @@ export class StargateClient {
     return this.tmClient;
   }
 
-  protected getQueryClient():
-    | (QueryClient &
-        AuthExtension &
-        BankExtension &
-        SdkStakingExtension &
-        StakingExtension &
-        DistributionExtension &
-        Aiozrc20Extension &
-        IbcExtension &
-        Bech32ibcExtension &
-        GravityExtension &
-        TxExtension)
-    | undefined {
+  protected getQueryClient(): QueryClientWithExtensions | undefined {
     return this.queryClient;
   }
 
-  protected forceGetQueryClient(): QueryClient &
-    AuthExtension &
-    BankExtension &
-    SdkStakingExtension &
-    StakingExtension &
-    DistributionExtension &
-    Aiozrc20Extension &
-    IbcExtension &
-    Bech32ibcExtension &
-    GravityExtension &
-    TxExtension {
+  protected forceGetQueryClient(): QueryClientWithExtensions {
     if (!this.queryClient) {
       throw new Error("Query client not available. You cannot use online functionality in offline mode.");
     }

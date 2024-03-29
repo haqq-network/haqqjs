@@ -12,6 +12,7 @@ import { EthAccount } from "@haqqjs/types/ethermint/types/v1/account";
 import { Any } from "@haqqjs/types/google/protobuf/any";
 import { assert } from "@haqqjs/utils";
 import Long from "long";
+import { ClawbackVestingAccount } from "@haqqjs/types/haqq/vesting/v1/vesting";
 
 export interface Account {
   /** Bech32 account address */
@@ -80,6 +81,12 @@ export function accountFromAny(input: Any): Account {
     }
     case "/cosmos.vesting.v1beta1.PeriodicVestingAccount": {
       const baseAccount = PeriodicVestingAccount.decode(value)?.baseVestingAccount?.baseAccount;
+      assert(baseAccount);
+      return accountFromBaseAccount(baseAccount);
+    }
+
+    case "/haqq.vesting.v1.ClawbackVestingAccount": {
+      const baseAccount = ClawbackVestingAccount.decode(value)?.baseVestingAccount?.baseAccount;
       assert(baseAccount);
       return accountFromBaseAccount(baseAccount);
     }

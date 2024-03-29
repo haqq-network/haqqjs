@@ -153,3 +153,14 @@ export {
   MsgWrappedEthereumTxEncodeObject,
   wetxTypes,
 } from "./wetx/messages";
+export { LiquidVestingExtension, setupLiquidVestingExtension } from "./haqq/liquidvesting/queries";
+export { MsgLiquidateEncodeObject, isMsgLiquidateEncodeObject } from "./haqq/liquidvesting/messages";
+export {
+  AminoMsgLiquidate,
+  isAminoMsgLiquidate,
+  createLiquidVestingAminoConverters,
+} from "./haqq/liquidvesting/aminomessages";
+export {
+  MsgCreateClawbackVestingAccountEncodeObject,
+  isMsgCreateClawbackVestingAccountEncodeObject,
+} from "./haqq/vesting/messages";

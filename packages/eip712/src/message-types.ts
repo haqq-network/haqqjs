@@ -189,6 +189,18 @@ export const MsgCancelSendToEvmChainTypes = {
   ],
 };
 
+export const MsgLiquidateTypes = {
+  MsgValue: [
+    { name: "liquidate_from", type: "string" },
+    { name: "liquidate_to", type: "string" },
+    { name: "amount", type: "TypeAmount" },
+  ],
+  TypeAmount: [
+    { name: "denom", type: "string" },
+    { name: "amount", type: "string" },
+  ],
+};
+
 export function getMsgTypes(type: string): Record<string, unknown> {
   switch (type) {
     case "cosmos-sdk/MsgSend":
@@ -223,6 +235,8 @@ export function getMsgTypes(type: string): Record<string, unknown> {
       return MsgSendToEvmChainTypes;
     case "gravity/MsgCancelSendToEvmChain":
       return MsgCancelSendToEvmChainTypes;
+    case "haqq/MsgLiquidate":
+      return MsgLiquidateTypes;
     default:
       throw new Error(`type '${type}' is not supported`);
   }

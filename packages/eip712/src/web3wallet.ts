@@ -65,7 +65,7 @@ export class Web3Wallet implements OfflineEIP712Signer {
   private readonly web3: Web3;
   private readonly prefix: string;
 
-  public constructor(web3: Web3, prefix = "aioz") {
+  public constructor(web3: Web3, prefix = "haqq") {
     this.web3 = web3;
     this.prefix = prefix;
   }
