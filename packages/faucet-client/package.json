@@ -5,6 +5,7 @@
   "contributors": [
     "Will Clark <willclarktech@users.noreply.github.com>"
   ],
+  "private": true,
   "license": "Apache-2.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
