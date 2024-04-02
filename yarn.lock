@@ -2634,6 +2634,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@haqqjs/source@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@haqqjs/source@workspace:."
+  dependencies:
+    "@haqqjs/amino": "workspace:^"
+    "@haqqjs/cosmwasm-stargate": "workspace:^"
+    "@haqqjs/crypto": "workspace:^"
+    "@haqqjs/encoding": "workspace:^"
+    "@haqqjs/proto-signing": "workspace:^"
+    "@haqqjs/stargate": "workspace:^"
+    eslint: "npm:7.32.0"
+    prettier: "npm:2.8.8"
+    typescript: "npm:4.9.5"
+  languageName: unknown
+  linkType: soft
+
 "@haqqjs/stargate@workspace:^, @haqqjs/stargate@workspace:packages/stargate":
   version: 0.0.0-use.local
   resolution: "@haqqjs/stargate@workspace:packages/stargate"
@@ -8056,22 +8072,6 @@ __metadata:
   checksum: 10/6dd60dba97007b21e3a829fab3f771803cc1292977fe610e240ea72afd67e5690ac9eeaafc4a99710e78962e5936ab5a460787c2a1180f1cb0ccfac37d29f897
   languageName: node
   linkType: hard
-
-"haqqjs-monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "haqqjs-monorepo@workspace:."
-  dependencies:
-    "@haqqjs/amino": "workspace:^"
-    "@haqqjs/cosmwasm-stargate": "workspace:^"
-    "@haqqjs/crypto": "workspace:^"
-    "@haqqjs/encoding": "workspace:^"
-    "@haqqjs/proto-signing": "workspace:^"
-    "@haqqjs/stargate": "workspace:^"
-    eslint: "npm:7.32.0"
-    prettier: "npm:2.8.8"
-    typescript: "npm:4.9.5"
-  languageName: unknown
-  linkType: soft
 
 "har-schema@npm:^2.0.0":
   version: 2.0.0
