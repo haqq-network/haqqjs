@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/socket",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Utility functions for working with WebSockets",
   "contributors": [
     "IOV SAS <admin@iov.one>",

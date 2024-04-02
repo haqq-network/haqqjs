@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/amino",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Helpers for Amino based signing.",
   "contributors": [
     "Simon Warta <webmaster128@users.noreply.github.com>"

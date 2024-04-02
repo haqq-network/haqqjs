@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/tendermint-rpc",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Tendermint RPC clients",
   "contributors": [
     "IOV SAS <admin@iov.one>",

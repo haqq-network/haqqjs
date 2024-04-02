@@ -1,6 +1,6 @@
 {
   "name": "@haqqjs/math",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Math helpers for blockchain projects",
   "contributors": [
     "IOV SAS <admin@iov.one>"
