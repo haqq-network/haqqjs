@@ -21,8 +21,7 @@
     "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/faucet"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://npm.haqq.sh"
+    "access": "public"
   },
   "scripts": {
     "dev-start": "yarn start-dev",

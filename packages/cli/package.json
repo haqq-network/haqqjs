@@ -12,8 +12,7 @@
     "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/cli"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://npm.haqq.sh"
+    "access": "public"
   },
   "scripts": {
     "format": "prettier --write --loglevel warn '**/*.{ts,js,tsx,jsx,cjs,mjs}'",

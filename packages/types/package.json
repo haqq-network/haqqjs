@@ -13,8 +13,7 @@
     "url": "https://github.com/confio/cosmjs-types"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://npm.haqq.sh"
+    "access": "public"
   },
   "files": [
     "aioz/",

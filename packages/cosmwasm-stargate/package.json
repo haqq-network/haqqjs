@@ -19,8 +19,7 @@
     "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/cosmwasm-stargate"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://npm.haqq.sh"
+    "access": "public"
   },
   "scripts": {
     "docs": "typedoc --options typedoc.js",

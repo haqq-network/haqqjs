@@ -21,8 +21,7 @@
     "url": "https://github.com/haqq-network/haqqjs/tree/main/packages/tendermint-rpc"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "http://npm.haqq.sh"
+    "access": "public"
   },
   "scripts": {
     "docs": "typedoc --options typedoc.js",
