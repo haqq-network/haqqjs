@@ -46,7 +46,7 @@
     "@haqqjs/tendermint-rpc": "workspace:^",
     "@haqqjs/types": "workspace:^",
     "@haqqjs/utils": "workspace:^",
-    "long": "^4.0.0",
+    "long": "^5.2.3",
     "pako": "^2.1.0"
   },
   "devDependencies": {

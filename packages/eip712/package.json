@@ -50,7 +50,7 @@
     "@types/ethereumjs-abi": "^0.6.5",
     "ethereumjs-abi": "^0.6.8",
     "ethereumjs-util": "^7.1.5",
-    "long": "^4.0.0",
+    "long": "^5.2.3",
     "protobufjs": "6.11.4",
     "util": "^0.12.5",
     "web3": "^1.10.4",

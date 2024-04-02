@@ -50,7 +50,7 @@
     "@haqqjs/tendermint-rpc": "workspace:^",
     "@haqqjs/types": "workspace:^",
     "@haqqjs/utils": "workspace:^",
-    "long": "^4.0.0",
+    "long": "^5.2.3",
     "protobufjs": "6.11.4",
     "xstream": "^11.14.0"
   },
