@@ -45,7 +45,7 @@
     "@haqqjs/proto-signing": "workspace:^",
     "@haqqjs/stargate": "workspace:^",
     "@haqqjs/utils": "workspace:^",
-    "@koa/cors": "^3.4.3",
+    "@koa/cors": "^5.0.0",
     "koa": "^2.15.2",
     "koa-bodyparser": "^4.4.1"
   },

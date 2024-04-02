@@ -2380,7 +2380,7 @@ __metadata:
     "@haqqjs/stargate": "workspace:^"
     "@haqqjs/utils": "workspace:^"
     "@istanbuljs/nyc-config-typescript": "npm:^1.0.2"
-    "@koa/cors": "npm:^3.4.3"
+    "@koa/cors": "npm:^5.0.0"
     "@types/eslint-plugin-prettier": "npm:^3.1.3"
     "@types/jasmine": "npm:^4.6.4"
     "@types/koa": "npm:^2.15.0"
@@ -3008,12 +3008,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@koa/cors@npm:^3.4.3":
-  version: 3.4.3
-  resolution: "@koa/cors@npm:3.4.3"
+"@koa/cors@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@koa/cors@npm:5.0.0"
   dependencies:
     vary: "npm:^1.1.2"
-  checksum: 10/7e91b661a2d0b73b3ae38167103c819da989a7f5102107fdf6877aaf1b435fc6bbc6dbb90c4f47d5acb09a79d98a3b06c0b7af70ba5241fa2ab49b4c8991ecc0
+  checksum: 10/3a0e32fbc422a5f9a41540ce3b7499d46073ddb0e4e851394a74bac5ecd0eaa1f24a8f189b7bd6a50c5863788ae6945c52d990edf99fdd2151a4404f266fe2e7
   languageName: node
   linkType: hard
 
