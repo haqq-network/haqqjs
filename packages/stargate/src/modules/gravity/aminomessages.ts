@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { AminoMsg, Coin } from "@haqqjs/amino";
 import { MsgCancelSendToEvmChain, MsgSendToEvmChain } from "@haqqjs/types/gravity/v1/msgs";
+import Long from "long";
 
 // eslint-disable-next-line import/no-cycle
 import { AminoConverters } from "../../aminotypes";

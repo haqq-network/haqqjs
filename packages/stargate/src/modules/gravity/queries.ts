@@ -7,6 +7,7 @@ import {
   QueryPendingIbcAutoForwardsResponse,
   QueryPendingSendToEvmChainResponse,
 } from "@haqqjs/types/gravity/v1/query";
+import Long from "long";
 
 import { createProtobufRpcClient, QueryClient } from "../../queryclient";
 
