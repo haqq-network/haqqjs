@@ -48,7 +48,7 @@
     "@haqqjs/socket": "workspace:^",
     "@haqqjs/stream": "workspace:^",
     "@haqqjs/utils": "workspace:^",
-    "axios": "^0.21.4",
+    "axios": "^0.28.0",
     "readonly-date": "^1.0.0",
     "xstream": "^11.14.0"
   },
