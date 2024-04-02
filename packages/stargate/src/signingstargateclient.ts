@@ -70,9 +70,9 @@ import {
   createGovAminoConverters,
   createGravityAminoConverters,
   createIbcAminoConverters,
+  createLiquidVestingAminoConverters,
   createSdkStakingAminoConverters,
   createVestingAminoConverters,
-  createLiquidVestingAminoConverters,
 } from "./modules";
 import { DeliverTxResponse, StargateClient, StargateClientOptions } from "./stargateclient";
 

@@ -4,6 +4,7 @@ import {
   QueryDenomResponse,
   QueryDenomsResponse,
 } from "@haqqjs/types/haqq/liquidvesting/v1/query";
+
 import { createProtobufRpcClient, QueryClient } from "../../../queryclient";
 
 export interface LiquidVestingExtension {

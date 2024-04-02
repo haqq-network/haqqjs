@@ -10,9 +10,9 @@ import {
 } from "@haqqjs/types/cosmos/vesting/v1beta1/vesting";
 import { EthAccount } from "@haqqjs/types/ethermint/types/v1/account";
 import { Any } from "@haqqjs/types/google/protobuf/any";
+import { ClawbackVestingAccount } from "@haqqjs/types/haqq/vesting/v1/vesting";
 import { assert } from "@haqqjs/utils";
 import Long from "long";
-import { ClawbackVestingAccount } from "@haqqjs/types/haqq/vesting/v1/vesting";
 
 export interface Account {
   /** Bech32 account address */

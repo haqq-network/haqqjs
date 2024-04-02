@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/naming-convention, @typescript-eslint/no-non-null-assertion */
 import { AminoMsg } from "@haqqjs/amino";
 import { Period } from "@haqqjs/types/cosmos/vesting/v1beta1/vesting";
 import { Timestamp } from "@haqqjs/types/google/protobuf/timestamp";
 import { MsgCreateClawbackVestingAccount } from "@haqqjs/types/haqq/vesting/v1/tx";
+
 import { AminoConverters } from "../../../aminotypes";
 
 export interface AminoMsgCreateClawbackVestingAccount extends AminoMsg {
@@ -38,8 +39,8 @@ export function createLiquidVestingAminoConverters(): AminoConverters {
         from_address: fromAddress,
         to_address: toAddress,
         start_time: startTime!,
-        lockup_priods: lockupPeriods!,
-        vesting_periods: vestingPeriods!,
+        lockup_priods: lockupPeriods,
+        vesting_periods: vestingPeriods,
         merge,
       }),
       fromAmino: ({

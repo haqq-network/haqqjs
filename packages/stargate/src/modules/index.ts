@@ -103,6 +103,17 @@ export {
   MsgSendToEvmChainEncodeObject,
 } from "./gravity/messages";
 export { GravityExtension, setupGravityExtension } from "./gravity/queries";
+export {
+  AminoMsgLiquidate,
+  createLiquidVestingAminoConverters,
+  isAminoMsgLiquidate,
+} from "./haqq/liquidvesting/aminomessages";
+export { isMsgLiquidateEncodeObject, MsgLiquidateEncodeObject } from "./haqq/liquidvesting/messages";
+export { LiquidVestingExtension, setupLiquidVestingExtension } from "./haqq/liquidvesting/queries";
+export {
+  isMsgCreateClawbackVestingAccountEncodeObject,
+  MsgCreateClawbackVestingAccountEncodeObject,
+} from "./haqq/vesting/messages";
 export { AminoMsgTransfer, createIbcAminoConverters, isAminoMsgTransfer } from "./ibc/aminomessages";
 export { ibcTypes, isMsgTransferEncodeObject, MsgTransferEncodeObject } from "./ibc/messages";
 export { IbcExtension, setupIbcExtension } from "./ibc/queries";
@@ -153,14 +164,3 @@ export {
   MsgWrappedEthereumTxEncodeObject,
   wetxTypes,
 } from "./wetx/messages";
-export { LiquidVestingExtension, setupLiquidVestingExtension } from "./haqq/liquidvesting/queries";
-export { MsgLiquidateEncodeObject, isMsgLiquidateEncodeObject } from "./haqq/liquidvesting/messages";
-export {
-  AminoMsgLiquidate,
-  isAminoMsgLiquidate,
-  createLiquidVestingAminoConverters,
-} from "./haqq/liquidvesting/aminomessages";
-export {
-  MsgCreateClawbackVestingAccountEncodeObject,
-  isMsgCreateClawbackVestingAccountEncodeObject,
-} from "./haqq/vesting/messages";

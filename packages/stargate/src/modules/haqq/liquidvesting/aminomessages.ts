@@ -1,6 +1,7 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { Coin, AminoMsg } from "@haqqjs/amino";
+/* eslint-disable @typescript-eslint/naming-convention, @typescript-eslint/no-non-null-assertion */
+import { AminoMsg, Coin } from "@haqqjs/amino";
 import { MsgLiquidate } from "@haqqjs/types/haqq/liquidvesting/v1/tx";
+
 import { AminoConverters } from "../../../aminotypes";
 
 export interface AminoMsgLiquidate extends AminoMsg {
