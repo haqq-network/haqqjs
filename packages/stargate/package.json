@@ -52,7 +52,7 @@
     "@haqqjs/types": "workspace:^",
     "@haqqjs/utils": "workspace:^",
     "long": "^4.0.0",
-    "protobufjs": "6.11.3",
+    "protobufjs": "6.11.4",
     "xstream": "^11.14.0"
   },
   "devDependencies": {
