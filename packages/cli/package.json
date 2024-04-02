@@ -50,7 +50,7 @@
     "@haqqjs/tendermint-rpc": "workspace:^",
     "@haqqjs/types": "workspace:^",
     "@haqqjs/utils": "workspace:^",
-    "axios": "^0.21.4",
+    "axios": "^0.28.0",
     "babylon": "^6.18.0",
     "chalk": "^4.1.2",
     "diff": "^4.0.2",
