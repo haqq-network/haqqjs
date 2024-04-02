@@ -1,5 +1,5 @@
 {
-  "name": "haqqjs-monorepo",
+  "name": "@haqqjs/source",
   "description": "Transaction codec and client to communicate with any wasmd blockchain",
   "private": true,
   "author": "Ethan Frey <ethanfrey@users.noreply.github.com>",
@@ -11,7 +11,7 @@
     "!**/testdata/"
   ],
   "engines": {
-    "node": ">=20.10",
+    "node": ">=18.19",
     "yarn": ">=4.0"
   },
   "repository": {
