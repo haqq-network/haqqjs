@@ -12,27 +12,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@agoric/babel-standalone@npm:^7.9.5":
-  version: 7.17.7
-  resolution: "@agoric/babel-standalone@npm:7.17.7"
-  checksum: 10/6c77da6ff4f3a783903c8ae62a56144a4d4534c3a86eb46a48047278878b724a4375e5cf193a3668afcec48c07c56e7677cb10a65c077dc43d979790d3d08bba
-  languageName: node
-  linkType: hard
-
-"@agoric/make-hardener@npm:^0.1.2":
-  version: 0.1.3
-  resolution: "@agoric/make-hardener@npm:0.1.3"
-  checksum: 10/1e7e65bec6a1803402b6a9107aebbf36d59c2cda869809595fffb9135143f30f5216566eb6b99938e55f695afe67d44474d496566f00bf8caee0ec0fcf824525
-  languageName: node
-  linkType: hard
-
-"@agoric/transform-module@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@agoric/transform-module@npm:0.4.1"
-  checksum: 10/2de9762cef11655d3c744c0720d29b1823ed2da37079b1c49ea9efacb2cba13a0a1d871090e32e373ea7748e9a15a2da729e85ab0ab3b14c91c7acecd61aff20
-  languageName: node
-  linkType: hard
-
 "@ampproject/remapping@npm:^2.1.0, @ampproject/remapping@npm:^2.2.0":
   version: 2.3.0
   resolution: "@ampproject/remapping@npm:2.3.0"
@@ -2055,7 +2034,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2159,7 +2138,7 @@ __metadata:
     prettier: "npm:2.8.8"
     protobufjs: "npm:6.11.4"
     readonly-date: "npm:^1.0.0"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2210,7 +2189,7 @@ __metadata:
     libsodium-wrappers-sumo: "npm:^0.7.13"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2269,7 +2248,7 @@ __metadata:
     prettier: "npm:2.8.8"
     protobufjs: "npm:6.11.4"
     readonly-date: "npm:^1.0.0"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     stream-browserify: "npm:^3.0.0"
     ts-node: "npm:^8.10.2"
@@ -2318,7 +2297,7 @@ __metadata:
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
     readonly-date: "npm:^1.0.0"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2359,7 +2338,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2401,7 +2380,7 @@ __metadata:
     koa-bodyparser: "npm:^4.4.1"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typescript: "npm:4.9.5"
@@ -2442,7 +2421,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2489,7 +2468,7 @@ __metadata:
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
     semver: "npm:^7.6.0"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2531,7 +2510,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2580,7 +2559,7 @@ __metadata:
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
     protobufjs: "npm:6.11.4"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2622,7 +2601,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2682,7 +2661,7 @@ __metadata:
     prettier: "npm:2.8.8"
     protobufjs: "npm:6.11.4"
     readonly-date: "npm:^1.0.0"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2723,7 +2702,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2773,7 +2752,7 @@ __metadata:
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
     readonly-date: "npm:^1.0.0"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -2830,7 +2809,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:^1.7.0"
     nyc: "npm:^15.1.0"
     prettier: "npm:2.8.8"
-    ses: "npm:^0.11.1"
+    ses: "npm:^0.16.1"
     source-map-support: "npm:^0.5.21"
     ts-node: "npm:^8.10.2"
     typedoc: "npm:^0.22.18"
@@ -11737,14 +11716,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ses@npm:^0.11.1":
-  version: 0.11.1
-  resolution: "ses@npm:0.11.1"
-  dependencies:
-    "@agoric/babel-standalone": "npm:^7.9.5"
-    "@agoric/make-hardener": "npm:^0.1.2"
-    "@agoric/transform-module": "npm:^0.4.1"
-  checksum: 10/a04b19fe49818d8e7704faca22fd110d1d78d94f45e1e1e39611737a66f6a54f0a9a840913c4302b9b6e2c212797f231dcff52a1c028b97667966dcb3650769b
+"ses@npm:^0.16.1":
+  version: 0.16.1
+  resolution: "ses@npm:0.16.1"
+  checksum: 10/df0f5bf265e5ebe21ccf4c55821d42a1df63206a11c33af45f9630093702800775547f6fd6e63a892d8bc008731c8d321a6fa4072a1478d92969d6b624b010a0
   languageName: node
   linkType: hard
 
