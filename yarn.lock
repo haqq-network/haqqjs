@@ -12486,9 +12486,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"test1@workspace:packages/test1":
+"test-suite@workspace:packages/test-suite":
   version: 0.0.0-use.local
-  resolution: "test1@workspace:packages/test1"
+  resolution: "test-suite@workspace:packages/test-suite"
   dependencies:
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.1.1"
     "@haqqjs/amino": "workspace:^"
